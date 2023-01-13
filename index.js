@@ -15,6 +15,18 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(initialPath, "view/index.html"))
 })
 
+app.get('/demographics', (req, res) => {
+    res.sendFile(path.join(initialPath, "view/demographics.html"))
+})
+
+app.get('/search', (req, res) => {
+    res.sendFile(path.join(initialPath, "view/search.html"))
+})
+
+app.get('/count', (req, res) => {
+    res.sendFile(path.join(initialPath, "view/count.html"))
+})
+
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
 })
