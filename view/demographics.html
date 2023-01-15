@@ -1,35 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ProstateDB: Demographics Form</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../design/index.css">
-    <link rel="icon" href="../resources/clipboard2-heart.svg">
 
-  </head>
-  <body>
-   
-    <nav class="navbar navbar-light bg-light navbar-expand-lg">
-      <a class="navbar-brand" href="/">
-        <img src="../resources/clipboard2-heart.svg" width="30" height="30" class="d-inline-block align-top" alt="Website Logo">
-        ProstateDB
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link" href="/">Home</a>
-          <a class="nav-item nav-link active" href="/demographics">Add</a>
-          <a class="nav-item nav-link" href="/search">Search</a>
-          <a class="nav-item nav-link" href="/count">Count</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProstateDB: Demographics Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="../design/index.css">
+  <link rel="icon" href="../resources/clipboard2-heart.svg">
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-light bg-light navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+      <img src="../resources/clipboard2-heart.svg" width="30" height="30" class="d-inline-block align-top"
+        alt="Website Logo">
+      ProstateDB
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/">Home</a>
+        <a class="nav-item nav-link active" href="/add-patient">Add</a>
+        <a class="nav-item nav-link" href="/search">Search</a>
+        <a class="nav-item nav-link" href="/count">Count</a>
+      </div>
+    </div>
+  </nav>
+  <!--Title Card-->
+  <div class="card" style="margin:10px">
+    <h5 class="card-header">Add Patient</h5>
+  </div>
+
+  <!--Demographics-->
+  <div class="card" style="margin:10px">
+    <h5 class="card-header">Demographics</h5>
+    <div class="card-body">
+      <div class="row" style="margin-bottom:5px">
+        <div class="col">
+          <div class="form-floating">
+            <input type="text" class="form-control slc" id="p1-firstname" aria-label="first name">
+            <label for="p1-firstname">First Name</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input type="text" class="form-control slc" id="p1-lastname" aria-label="last name">
+            <label for="p1-lastname">Last Name</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input type="number" min="0" class="form-control slc" id="p1-age" aria-label="age">
+            <label for="p1-age">Age</label>
+          </div>
         </div>
       </div>
-    </nav>
-    
-    <div id="details"></div>
-    
-  </body>
+      <div class="row" style="margin-bottom:5px">
+        <div class="col">
+          <div class="form-floating">
+            <input type="text" class="form-control slc" id="p1-datediagnosis" aria-label="date of diagnosis">
+            <label for="p1-datediagnosis">Date of diagnosis (MM/DD/YYYY)</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input type="text" class="form-control slc" id="p1-datesurgery" aria-label="date of surgery">
+            <label for="p1-datesurgery">Date of surgery (MM/DD/YYYY)</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input type="text" class="form-control slc" id="p1-histopathresult" aria-label="histopath result">
+            <label for="p1-histopathresult">Histopath Result</label>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 5px;">
+        <div class="col">
+          <div class="form-floating">
+            <input type="text" class="form-control slc" id="p1-datetreatment slc" aria-label="date of treatment">
+            <label for="p1-datetreatment">Date of treatment (MM/DD/YYYY)</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <select class="form-select slc" aria-label="select" id="p1-treatmenttype">
+              <option selected value="none"></option>
+              <option value="hormonal">Hormonal therapy</option>
+              <option value="radiation">Radiation therapy</option>
+              <option value="chemo">Chemotherapy</option>
+              <option value="others">Others</option>
+            </select>
+            <label for="p1-treatmenttype">Treatment Type</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Physical Examination-->
+  <div class="card" style="margin:10px">
+    <h5 class="card-header">Physical Examination</h5>
+    <div class="card-body">
+      <div class="row" style="margin-bottom: 5px;">
+        <div class="col">
+          <div class="form-floating">
+            <input type="number" min="0" class="form-control slc" id="p1-ecog" aria-label="ecog score">
+            <label for="p1-ecog">ECOG score</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input type="number" min="0" class="form-control slc" id="p1-ht" aria-label="height">
+            <label for="p1-ht">Height (in cm)</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input type="number" min="0" class="form-control slc" id="p1-wt" aria-label="weight">
+            <label for="p1-wt">Weight (in kg)</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input type="number" min="0" class="form-control slc" id="p1-bmi" aria-label="weight" disabled>
+            <label for="p1-bmi">BMI</label>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 5px;">
+        <div class="col">
+          <div class="form-floating">
+            <input type="text" class="form-control slc" id="p1-bp" aria-label="blood pressure">
+            <label for="p1-bp">Blood Pressure (Systolic/Diastolic)</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input type="number" min="0" class="form-control slc" id="p1-hr" aria-label="heart rate">
+            <label for="p1-hr">Heart Rate</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input type="number" min="0" class="form-control slc" id="p1-painscore" aria-label="pain score">
+            <label for="p1-painscore">Pain Score</label>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 5px;">
+        <div class="col">
+          <div class="form-floating">
+            <input type="text" class="form-control slc" id="p1-localsymptoms" aria-label="local symptoms">
+            <label for="p1-localsymptoms">Local Symptoms</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input type="text" class="form-control slc" id="p1-systemicsymptoms" aria-label="systemic symptoms">
+            <label for="p1-systemicsymptoms">Systemic Symptoms</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Screening: Laboratory-->
+  <div class="card" style="margin:10px">
+    <h5 class="card-header">Screening: Laboratory</h5>
+    <div class="card-body">
+      <div class="row" style="margin-bottom: 5px;">
+        <div class="col">
+          <div class="form-floating">
+            <input type="number" min="0" class="form-control slc" id="p1-psa" aria-label="psa">
+            <label for="p1-psa">Prostate-Specific Antigen Levels</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input type="number" min="0" class="form-control slc" id="p1-creatinine" aria-label="creatinine">
+            <label for="p1-creatinine">Creatinine</label>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 5px;">
+        <div class="col">
+          <div class="form-floating">
+            <input type="number" min="0" class="form-control slc" id="p1-wbc" aria-label="wbc">
+            <label for="p1-wbc">White Blood Cell Count</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input type="number" min="0" class="form-control slc" id="p1-rbc" aria-label="rbc">
+            <label for="p1-rbc">Red Blood Cell Count</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input type="number" min="0" class="form-control slc" id="p1-hemoglobin" aria-label="hemoglobin">
+            <label for="p1-hemoglobin">Hemoglobin Level</label>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 5px;">
+        <div class="col">
+          <div class="form-floating">
+            <input type="number" min="0" class="form-control slc" id="p1-hematocrit" aria-label="hematocrit">
+            <label for="p1-hematocrit">Hematocrit Level</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input type="number" min="0" class="form-control slc" id="p1-platelet" aria-label="platelet count">
+            <label for="p1-platelet">Platelet Count</label>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 5px;">
+        <div class="col">
+          <div class="form-floating">
+            <input type="number" min="0" class="form-control slc" id="p1-lactate" aria-label="lactate">
+            <label for="p1-lactate">Lactate dehydrogenase Level</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input type="number" min="0" class="form-control slc" id="p1-alkaline" aria-label="alkaline">
+            <label for="p1-alkaline">Alkaline phosphatase Level</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input type="number" min="0" class="form-control slc" id="p1-sgpt" aria-label="sgpt, sgot, bilirubins">
+            <label for="p1-sgpt">SGPT, SGOT, Bilirubin Level</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Screening: Imaging-->
+  <div class="card" style="margin:10px">
+    <h5 class="card-header">Screening: Imaging</h5>
+    <div class="card-body">
+      <div class="row" style="margin-bottom: 5px;">
+        <div class="col">
+          <div class="card" style="padding:0px">
+            <div class="card-header">Salivary Gland</div>
+            <div class="card-body">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="salivary-option" id="sg-normal" value="normal">
+                <label class="form-check-label" for="sg-normal">Normal</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="salivary-option" id="sg-obstructed"
+                  value="obstructed">
+                <label class="form-check-label" for="sg-obstructed">Obstructed</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col sg-opt-obs" style="display:none">
+          <div class="card" style="padding:0px">
+            <div class="card-header">Obstruction Position</div>
+            <div class="card-body">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input slc" type="checkbox" id="sg-obs-left" value="left">
+                <label class="form-check-label" for="sg-obs-left">Normal</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input slc" type="checkbox" id="sg-obs-right" value="right">
+                <label class="form-check-label" for="sg-obs-right">Obstructed</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 5px;">
+        <div class="col">
+          <div class="form-floating">
+            <select class="form-select slc" aria-label="select renal scintigraphy" id="p1-renalscintigraphy">
+              <option selected value="none"></option>
+              <option value="mag3">MAG3</option>
+              <option value="dtpa">DTPA</option>
+            </select>
+            <label for="p1-renalscintigraphy">Renal Scintigraphy</label>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 5px;">
+        <div class="col">
+          <div class="card" style="padding:0px">
+            <div class="card-header">Bone Metastasis</div>
+            <div class="card-body">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="metastasis-option" id="bm-no" value="no">
+                <label class="form-check-label" for="bm-no">No Metastasis</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="metastasis-option" id="bm-with" value="with">
+                <label class="form-check-label" for="bm-with">With Metastases</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col bm-opt-obs" style="display:none">
+          <div class="card" style="padding: 0px;">
+            <div class="card-header">&nbsp;</div>
+            <div class="card-body">
+              <div class="form-floating">
+                <input type="text" class="form-control slc" id="p1-metastasisloc" aria-label="metastasis location">
+                <label for="p1-metastasisloc">Metastasis Location</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--next task here, finish it by midday: cur at lesions a-->
+    </div>
+  </div>
+  </div>
+
+  <!--Assessment/Plan-->
+  <div class="card" style="margin:10px">
+    <h5 class="card-header">Assessment and Plan</h5>
+    <div class="card-body">
+      <div class="row" style="margin-bottom: 5px;">
+
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!--Submit-->
+  <div class="card text-center" style="margin:10px">
+    <div class="card-body">
+      <a class="btn btn-outline-secondary mb-3" id="submit-info">Submit</a>
+    </div>
+  </div>
+
+</body>
+<script src="../scripts/demographics.js"></script>
+
 </html>

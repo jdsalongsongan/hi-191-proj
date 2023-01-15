@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     res.sendFile(path.join(initialPath, "../view/index.html"))
 })
 
-router.get('/demographics', (req, res) => {
+router.get('/add-patient', (req, res) => {
     res.sendFile(path.join(initialPath, "../view/demographics.html"))
 })
 
