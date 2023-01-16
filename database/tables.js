@@ -9,7 +9,7 @@ const functions = {
                     t.string('last_name');
                     t.integer('age').unsigned();
                     t.string('city_of_residence');
-                    t.string('date_of_residence');
+                    t.string('date_of_diagnosis');
                     t.string('date_of_surgery');
                     t.string('histopath_result')
                     t.string('gleason_score');
@@ -103,6 +103,7 @@ const functions = {
                     t.float('lesion_others_b_measurement');
                     t.string('assessment');
                     t.string('plan');
+                    t.timestamp('created_at').defaultTo(db.fn.now());
                 })
                     .then(() => {
                         console.log('created part1')
@@ -136,6 +137,7 @@ const functions = {
                                     t.boolean('have_headache');
                                     t.boolean('have_bone_pain');
                                     t.boolean('other_side_effect');
+                                    t.timestamp('created_at').defaultTo(db.fn.now());
                                 })
                                     .then(console.log('created part2'))
                             }
@@ -167,6 +169,7 @@ const functions = {
                                     t.float('dosimetry_saliva');
                                     t.float('dosimetry_kidney_left');
                                     t.float('dosimetry_kidney_right');
+                                    t.timestamp('created_at').defaultTo(db.fn.now());
                                 })
                                     .then(console.log('created part3'))
                             }
@@ -263,6 +266,7 @@ const functions = {
                                     t.float('lesion_others_b_measurement');
                                     t.string('assessment');
                                     t.string('plan');
+                                    t.timestamp('created_at').defaultTo(db.fn.now());
                                 })
                                 .then(console.log('created part4'))
                             }

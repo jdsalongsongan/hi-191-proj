@@ -12,6 +12,10 @@ router.get('/add-patient', (req, res) => {
     res.sendFile(path.join(initialPath, "../view/demographics.html"))
 })
 
+router.get('/view-patient', (req, res) => {
+    res.sendFile(path.join(initialPath, "../view/view-patient.html"))
+})
+
 router.get('/search', (req, res) => {
     res.sendFile(path.join(initialPath, "../view/search.html"))
 })
