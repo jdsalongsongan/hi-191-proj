@@ -12,7 +12,7 @@
   <body>
    
     <nav class="navbar navbar-light bg-light navbar-expand-lg">
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand" href="/" onclick="sessionStorage.clear()">
         <img src="../resources/clipboard2-heart.svg" width="30" height="30" class="d-inline-block align-top" alt="Website Logo">
         ProstateDB
       </a>
@@ -21,15 +21,119 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link" href="/">Home</a>
-          <a class="nav-item nav-link active" href="/add-patient">Add</a>
-          <a class="nav-item nav-link" href="/search">Search</a>
-          <a class="nav-item nav-link" href="/count">Count</a>
+          <a class="nav-item nav-link" href="/" onclick="sessionStorage.clear()">Home</a>
+          <a class="nav-item nav-link" href="/add-patient" onclick="sessionStorage.clear()">Add</a>
+          <a class="nav-item nav-link" href="/search" onclick="sessionStorage.clear()">Search</a>
+          <a class="nav-item nav-link" href="/count" onclick="sessionStorage.clear()">Count</a>
         </div>
       </div>
     </nav>
     
-    <div id="details"></div>
-    
+    <div class="card" style="margin:10px">
+      <h5 class="card-header titletext">Post-therapy Form to </h5>
+      <!--Post therapy form to therapy (n) of (fname) (lname)-->
+    </div>
+    <div class="card" style="margin:10px">
+      <h5 class="card-header">Post-Therapy Scan and Dosimetry Information</h5>
+      <div class="card-body">
+        <div class="row"  style="margin-bottom: 5px;">
+          <div class="col">
+            <div class="form-floating">
+              <input type="text" class="form-control slc" id="p3-dateposttherapy"
+                aria-label="Date of post-theraphy">
+              <label for="p3-dateposttherapy">Date of Post-Therapy and Dosimetry (MM/DD/YYYY)</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating">
+              <input type="text" class="form-control slc" id="p3-hour"
+                aria-label="Post-Therapy scan hour">
+              <label for="p3-hour">Post-Therapy Scan Hour</label>
+            </div>
+          </div>
+        </div>
+        <div class="row"  style="margin-bottom: 5px;">
+          <div class="col">
+            <div class="card" style="padding:0px">
+              <div class="card-header">SPECT/CT</div>
+              <div class="card-body">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="spect-option" id="p3-withspect" value="with">
+                  <label class="form-check-label" for="p3-withspect">with SPECT/CT</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="spect-option" id="p3-withoutspect" value="without">
+                  <label class="form-check-label" for="p3-withoutspect">without SPECT</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row"  style="margin-bottom: 5px;">
+          <div class="col">
+            <div class="card" style="padding:0px">
+              <div class="card-header">Lesion</div>
+              <div class="card-body">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input slc" type="checkbox" id="p3-prostate" value="prostate">
+                  <label class="form-check-label" for="p3-prostate">Prostate</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input slc" type="checkbox" id="p3-lymph" value="lymph">
+                  <label class="form-check-label" for="p3-lymph">Lymph Nodes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input slc" type="checkbox" id="p3-bones" value="bones">
+                  <label class="form-check-label" for="p3-bones">Bones</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input slc" type="checkbox" id="p3-lungs" value="lungs">
+                  <label class="form-check-label" for="p3-lungs">Lungs</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input slc" type="checkbox" id="p3-liver" value="liver">
+                  <label class="form-check-label" for="p3-liver">Liver</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row"  style="margin-bottom: 5px;">
+          <div class="col">
+            <div class="card" style="padding:0px">
+              <div class="card-header">Dosimetry</div>
+              <div class="card-body">
+                <div class="row" style="margin-bottom: 5px;">
+                  <div class="col">
+                    <div class="form-floating">
+                      <input type="number" min="0" class="form-control slc" id="p3-dossaliva" aria-label="Dosimetry salivary gland">
+                      <label for="p3-dossaliva">Saliva</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-floating">
+                      <input type="number" min="0" class="form-control slc" id="p3-doskidr" aria-label="Dosimetry right Kidney">
+                      <label for="p3-doskidr">Right Kidney</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-floating">
+                      <input type="number" min="0" class="form-control slc" id="p3-doskidl" aria-label="Dosimetry left Kidney">
+                      <label for="p3-doskidl">Left Kidney</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card text-center" style="margin:10px">
+      <div class="card-body">
+        <a class="btn btn-outline-secondary mb-3" id="submit-posttherapy">Submit</a>
+      </div>
+    </div>
   </body>
+  <script src="../scripts/post-therapy.js"></script>
 </html>

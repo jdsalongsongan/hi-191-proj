@@ -24,4 +24,16 @@ router.get('/count', (req, res) => {
     res.sendFile(path.join(initialPath, "../view/count.html"))
 })
 
+router.get('/therapy', (req, res) => {
+    res.sendFile(path.join(initialPath, "../view/theraphy.html"))
+})
+
+router.get('/post-therapy', (req, res) => {
+    res.sendFile(path.join(initialPath, "../view/post-theraphy.html"))
+})
+
+router.get('/follow-up', (req, res) => {
+    res.sendFile(path.join(initialPath, "../view/follow-up.html"))
+})
+
 module.exports = router

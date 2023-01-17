@@ -12,7 +12,7 @@ const functions = {
                     t.string('date_of_diagnosis');
                     t.string('date_of_surgery');
                     t.string('histopath_result')
-                    t.string('gleason_score');
+                    t.integer('gleason_score');
                     t.string('date_of_treatment');
                     t.string('treatment_type');
                     //physical exam
@@ -130,6 +130,8 @@ const functions = {
                                     t.float('p2_rr');
                                     t.float('oxygen_sat');
                                     t.string('date_therapy');
+                                    t.string('radiopharm');
+                                    t.string('activity');
                                     //symptoms check
                                     t.boolean('have_fatigue');
                                     t.boolean('have_nausea_vomitting');

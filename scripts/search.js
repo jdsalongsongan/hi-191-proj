@@ -56,8 +56,10 @@ search_button.addEventListener('click', () => {
                     btn.className = 'btn btn-outline-secondary mb-3'
                     btn.addEventListener('click', () => {
                         sessionStorage.setItem('patient_code', data[i].patient_code)
+                        sessionStorage.setItem('first_name', data[i].first_name)
+                        sessionStorage.setItem('last_name', data[i].last_name)
                         location.href = '/view-patient'
-                        console.log(sessionStorage.getItem('patient_code'))
+                        //console.log(sessionStorage.getItem('patient_code'))
                     })
                     btn_container.appendChild(btn)
                     tbl_row.appendChild(btn_container)

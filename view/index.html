@@ -12,7 +12,7 @@
   <body>
    
     <nav class="navbar navbar-light bg-light navbar-expand-lg">
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand" href="/" onclick="sessionStorage.clear()">
         <img src="../resources/clipboard2-heart.svg" width="30" height="30" class="d-inline-block align-top" alt="Website Logo">
         ProstateDB
       </a>
@@ -21,11 +21,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="/">Home</a>
-          <!--change add and demographics-->
-          <a class="nav-item nav-link" href="/add-patient">Add</a>
-          <a class="nav-item nav-link" href="/search">Search</a>
-          <a class="nav-item nav-link" href="/count">Count</a>
+          <a class="nav-item nav-link active" href="/" onclick="sessionStorage.clear()">Home</a>
+          <a class="nav-item nav-link" href="/add-patient" onclick="sessionStorage.clear()">Add</a>
+          <a class="nav-item nav-link" href="/search" onclick="sessionStorage.clear()">Search</a>
+          <a class="nav-item nav-link" href="/count" onclick="sessionStorage.clear()">Count</a>
         </div>
       </div>
     </nav>

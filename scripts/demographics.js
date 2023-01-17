@@ -502,7 +502,18 @@ submit_button.addEventListener('click', () => {
                 assessment: assessment,
                 plan: plan
             })
-        })    
+        })
+        .then((res) => res.json())
+        .then(data => {
+            if (data[0].event == 'success') {
+                alert(`Patient ${first_name} ${last_name} added successfully`) 
+                location.href = '/'
+            }
+            else if (data[0].event == 'fill') {
+                alert('Fill all fields')
+            }
+            else alert('Error occurred while adding patient')
+        })   
     }
     else {
         alert('Fill all fields')
