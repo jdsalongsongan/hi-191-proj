@@ -251,13 +251,7 @@ submit_btn.addEventListener('click', () => {
         })
     }
     else if (count_select.value === 'lesions') {
-        selection.forEach((sel) => {
-            console.log(sel.value)
-        })
         const checks = document.querySelectorAll('.checks')
-        checks.forEach((check) => {
-            console.log(check.value)
-        })
         var queryBody = []
         if (checks[0].checked) queryBody.push('prostate=true')
         if (checks[1].checked) queryBody.push('lymph=true')
