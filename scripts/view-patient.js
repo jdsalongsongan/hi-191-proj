@@ -477,23 +477,23 @@ window.onload = async () => {
                                 <tbody>
                                     <tr>
                                         <td>FDG PET/CT</td>
-                                        <td class="part1-info" contenteditable=false>${data[0].lesion_ga_psma}</td>
+                                        <td class="part1-info" contenteditable=false>${data[0].lesion_fdg_ct}</td>
                                     </tr>
                                     <tr>
                                         <td>Prostate Lesion Present</td>
-                                        <td class="part1-info" contenteditable=false>${data[0].lesion_prostate_a}</td>
+                                        <td class="part1-info" contenteditable=false>${data[0].lesion_prostate_b}</td>
                                     </tr>
                                     <tr>
                                         <td>Prostate Lesion Location</td>
-                                        <td class="part1-info" contenteditable=false>${data[0].lesion_prostate_a_location}</td>
+                                        <td class="part1-info" contenteditable=false>${data[0].lesion_prostate_b_location}</td>
                                     </tr>
                                     <tr>
                                         <td>Prostate Lesion SUV</td>
-                                        <td class="part1-info" contenteditable=false>${data[0].lesion_prostate_a_suv}</td>
+                                        <td class="part1-info" contenteditable=false>${data[0].lesion_prostate_b_suv}</td>
                                     </tr>
                                     <tr>
                                         <td>Prostate Lesion Measurement</td>
-                                        <td class="part1-info" contenteditable=false>${data[0].lesion_prostate_a_measurement}</td>
+                                        <td class="part1-info" contenteditable=false>${data[0].lesion_prostate_b_measurement}</td>
                                     </tr>
                                 </tbody>
                                 </table>
@@ -509,19 +509,19 @@ window.onload = async () => {
                                     <tbody>
                                         <tr>
                                             <td>Lymph Node Lesion Present</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_lymph_a}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_lymph_b}</td>
                                         </tr>
                                         <tr>
                                             <td>Lymph Node Lesion Location</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_lymph_a_location}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_lymph_b_location}</td>
                                         </tr>
                                         <tr>
                                             <td>Lymph Node Lesion SUV</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_lymph_a_suv}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_lymph_b_suv}</td>
                                         </tr>
                                         <tr>
                                             <td>Lymph Node Lesion Measurement</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_lymph_a_measurement}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_lymph_b_measurement}</td>
                                         </tr>
                                     </tbody>
                                     </table>
@@ -539,19 +539,19 @@ window.onload = async () => {
                                     <tbody>
                                         <tr>
                                             <td>Bone Lesion Present</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_bone_a}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_bone_b}</td>
                                         </tr>
                                         <tr>
                                             <td>Bone Lesion Location</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_bone_a_location}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_bone_b_location}</td>
                                         </tr>
                                         <tr>
                                             <td>Bone Lesion SUV</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_bone_a_suv}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_bone_b_suv}</td>
                                         </tr>
                                         <tr>
                                             <td>Bone Lesion Measurement</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_bone_a_measurement}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_bone_b_measurement}</td>
                                         </tr>
                                     </tbody>
                                     </table>
@@ -567,19 +567,19 @@ window.onload = async () => {
                                     <tbody>
                                         <tr>
                                             <td>Brain Lesion Present</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_brain_a}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_brain_b}</td>
                                         </tr>
                                         <tr>
                                             <td>Brain Lesion Location</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_brain_a_location}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_brain_b_location}</td>
                                         </tr>
                                         <tr>
                                             <td>Brain Lesion SUV</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_brain_a_suv}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_brain_b_suv}</td>
                                         </tr>
                                         <tr>
                                             <td>Brain Lesion Measurement</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_brain_a_measurement}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_brain_b_measurement}</td>
                                         </tr>
                                     </tbody>
                                     </table>
@@ -597,19 +597,19 @@ window.onload = async () => {
                                     <tbody>
                                         <tr>
                                             <td>Lungs Lesion Present</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_lungs_a}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_lungs_b}</td>
                                         </tr>
                                         <tr>
                                             <td>Lungs Lesion Location</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_lungs_a_location}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_lungs_b_location}</td>
                                         </tr>
                                         <tr>
                                             <td>Lungs Lesion SUV</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_lungs_a_suv}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_lungs_b_suv}</td>
                                         </tr>
                                         <tr>
                                             <td>Lungs Lesion Measurement</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_lungs_a_measurement}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_lungs_b_measurement}</td>
                                         </tr>
                                     </tbody>
                                     </table>
@@ -625,19 +625,19 @@ window.onload = async () => {
                                     <tbody>
                                         <tr>
                                             <td>Liver Lesion Present</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_liver_a}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_liver_b}</td>
                                         </tr>
                                         <tr>
                                             <td>Liver Lesion Location</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_liver_a_location}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_liver_b_location}</td>
                                         </tr>
                                         <tr>
                                             <td>Liver Lesion SUV</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_liver_a_suv}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_liver_b_suv}</td>
                                         </tr>
                                         <tr>
                                             <td>Liver Lesion Measurement</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_liver_a_measurement}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_liver_b_measurement}</td>
                                         </tr>
                                     </tbody>
                                     </table>
@@ -655,19 +655,19 @@ window.onload = async () => {
                                     <tbody>
                                         <tr>
                                             <td>Other Lesion Present</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_others_a}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_others_b}</td>
                                         </tr>
                                         <tr>
                                             <td>Other Lesion Location</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_others_a_location}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_others_b_location}</td>
                                         </tr>
                                         <tr>
                                             <td>Other Lesion SUV</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_others_a_suv}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_others_b_suv}</td>
                                         </tr>
                                         <tr>
                                             <td>Other Lesion Measurement</td>
-                                            <td class="part1-info" contenteditable=false>${data[0].lesion_others_a_measurement}</td>
+                                            <td class="part1-info" contenteditable=false>${data[0].lesion_others_b_measurement}</td>
                                         </tr>
                                     </tbody>
                                     </table>
@@ -730,7 +730,9 @@ window.onload = async () => {
                             <div class="card-body therapy-body"></div>
                         </div>
                         `
+                            const p2_theraphy_ids = []
                             for (let i = 0; i < data.length; i++) {
+                                p2_theraphy_ids.push(data[i].therapy_id)
                                 const therapy_body = document.querySelector('.therapy-body')
                                 therapy_body.innerHTML += `
                             <div class="card" style="margin-bottom:5px">
@@ -868,7 +870,7 @@ window.onload = async () => {
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col edit-btn-cont-p2-${i + 1}" style="display:block">
-                                        <a class="btn btn-outline-secondary mb-3 edit-p2" id="edit-part2-${i + 1}" >Edit Therapy #${i + 1}</a>
+                                        <a class="btn btn-outline-secondary mb-3 edit-p2-${i+1}" id="edit-part2-${i + 1}" >Edit Therapy #${i + 1}</a>
                                     </div>
                                     <div class="col cancel-btn-cont-p2-${i + 1}" style="display:none">
                                         <a class="btn btn-outline-secondary mb-3 cancel-edit-p2-${i + 1}" id="cancel-edit-part2-${i + 1}">Cancel Edit</a>
@@ -881,6 +883,7 @@ window.onload = async () => {
                             </div>
                             `
                             }
+                            sessionStorage.setItem('p2_therapy_ids', p2_theraphy_ids)
                         }
                     })
             })
@@ -907,12 +910,17 @@ window.onload = async () => {
                             <div class="card-body post-therapy-body"></div>
                         </div>
                         `
+                        const p3_theraphy_ids = []
+                        const p3_post_theraphy_ids = []
                         for(let i = 0; i < data.length; i++) {
+                            p3_theraphy_ids.push(data[i].therapy_id)
+                            p3_post_theraphy_ids.push(data[i].post_therapy_id)
                             const post_therapy_body = document.querySelector('.post-therapy-body')
                             post_therapy_body.innerHTML += `
                             <div class="card"  style="margin-bottom:5px">
                                 <h5 class="card-header">Post-Therapy #${i+1}</h5>
                                 <div class="card-body">
+                                <div class="row">
                                 <div class="col">
                                 <table class="table text-center">
                                 <thead>
@@ -937,10 +945,9 @@ window.onload = async () => {
                                 </tbody>
                                 </table>
                                 </div>
-                                </div>
                                 <div class="col">
                                         <div class="card">
-                                            <h5 class="card-header">Side Effects</h5>
+                                            <h5 class="card-header">Dosimetry</h5>
                                             <div class="card-body">
                                             <table class="table text-center">
                                             <thead>
@@ -951,38 +958,84 @@ window.onload = async () => {
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>Fatigue</td>
-                                                    <td class="part2-info-${i + 1}" contenteditable=false>${data[i].have_fatigue}</td>
+                                                    <td>Salivary Gland Dosimetry</td>
+                                                    <td class="part3-info-${i + 1}" contenteditable=false>${data[i].dosimetry_saliva}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Nausea/Vomitting</td>
-                                                    <td class="part2-info-${i + 1}" contenteditable=false>${data[i].have_nausea_vomitting}</td>
+                                                    <td>Left Kidney Dosimetry</td>
+                                                    <td class="part3-info-${i + 1}" contenteditable=false>${data[i].dosimetry_kidney_left}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Dry Lip/Mouth</td>
-                                                    <td class="part2-info-${i + 1}" contenteditable=false>${data[i].have_dry_lipmouth}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Headache</td>
-                                                    <td class="part2-info-${i + 1}" contenteditable=false>${data[i].have_headache}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Bone Pain</td>
-                                                    <td class="part2-info-${i + 1}" contenteditable=false>${data[i].have_bone_pain}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Others</td>
-                                                    <td class="part2-info-${i + 1}" contenteditable=false>${data[i].other_side_effect}</td>
+                                                    <td>Right Kidney Dosimetry</td>
+                                                    <td class="part3-info-${i + 1}" contenteditable=false>${data[i].dosimetry_kidney_right}</td>
                                                 </tr>
                                             </tbody>
                                             </table>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
+                                <div class="col">
+                                        <div class="card">
+                                            <h5 class="card-header">Lesion</h5>
+                                            <div class="card-body">
+                                            <table class="table text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Attribute</th>
+                                                    <th scope="col">Value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Prostate Lesion Present</td>
+                                                    <td class="part3-info-${i + 1}" contenteditable=false>${data[i].lesion_prostate}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Lymph Node Lesion Present</td>
+                                                    <td class="part3-info-${i + 1}" contenteditable=false>${data[i].lesion_lymph}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Bone Lesion Present</td>
+                                                    <td class="part3-info-${i + 1}" contenteditable=false>${data[i].lesion_bones}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Lung Lesion Present</td>
+                                                    <td class="part3-info-${i + 1}" contenteditable=false>${data[i].lesion_lungs}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Liver Lesion Present</td>
+                                                    <td class="part3-info-${i + 1}" contenteditable=false>${data[i].lesion_liver}</td>
+                                                </tr>
+                                            </tbody>
+                                            </table>
+                                            </div>
+                                        </div>
                                     </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="card text-center" style="margin: 10px">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col edit-btn-cont-p3-${i + 1}" style="display:block">
+                                        <a class="btn btn-outline-secondary mb-3 edit-p3-${i+1}" id="edit-part3-${i + 1}" >Edit Post-Therapy #${i + 1}</a>
+                                    </div>
+                                    <div class="col cancel-btn-cont-p3-${i + 1}" style="display:none">
+                                        <a class="btn btn-outline-secondary mb-3 cancel-edit-p3-${i + 1}" id="cancel-edit-part3-${i + 1}">Cancel Edit</a>
+                                    </div>
+                                    <div class="col save-btn-cont-p3-${i + 1}" style="display:none">
+                                        <a class="btn btn-outline-secondary mb-3 save-edit-p3-${i + 1}" id="save-edit-part3-${i + 1}">Save</a>
+                                    </div>
+                                </div>
+                            </div>
                             </div>
                             `
                         }
+                        
+                        sessionStorage.setItem('p3_therapy_ids', p3_theraphy_ids)
+                        sessionStorage.setItem('p3_post_therapy_ids', p3_post_theraphy_ids)
                         }
                         //display data per index
                     })
@@ -1004,13 +1057,588 @@ window.onload = async () => {
                                 (data[data.length - 1].lesion_brain_b != null || !data[data.length - 1].lesion_brain_b) || (data[data.length - 1].lesion_lungs_b != null || !data[data.length - 1].lesion_lungs_b) ||
                                 (data[data.length - 1].lesion_liver_b != null || !data[data.length - 1].lesion_liver_b) || (data[data.length - 1].lesion_others_b != null || !data[data.length - 1].lesion_others_b)
                             sessionStorage.setItem('part4_lesion', part4_lesion)
+                            sessionStorage.setItem('number_of_followup', data.length)
                             sessionStorage.setItem('latest_followup', data[data.length - 1].created_at)
                             const patient_info_body = document.querySelector('.patient-info-body')
                             patient_info_body.innerHTML += `
-                        <div class="card" style="margin-bottom:5px">
-                            
+                            <div class="card" style="margin-bottom:5px">
+                            <h5 class="card-header">Follow-up Information</h5>
+                            <div class="card-body follow-up-body"></div>
+                            </div>
+                            `
+                            const p4_follow_up_ids = []
+                            for (let i = 0; i < data.length; i++) {
+                                p4_follow_up_ids.push(data[i].follow_up_id)
+                                const follow_up_body = document.querySelector('.follow-up-body');
+                                follow_up_body.innerHTML = `
+                                <div class="card">
+                                    <h5 class="card-header">Follow-up #${i+1}</h5>
+                                    <div class="card-body">
+                                    <h5 class="card-text">Laboratory</h5>
+                            <div class="row">
+                                <div class="col">
+                                    <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Attribute</th>
+                                            <th scope="col">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>PSA</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].psa}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Creatinine</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].creatinine}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>WBC</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].wbc}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>RBC</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].rbc}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hemoglobin</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].hemoglobin}</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                                <div class="col">
+                                    <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Attribute</th>
+                                            <th scope="col">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Hematocrit</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].hematocrit}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Platelet Count</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].platelet_count}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lactate dehydrodenase</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lactate_dehydrogenase}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Alkaline phosphatase</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].alkaline_phosphatase}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>SGPT, SGOT, Bilirubins</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].sgpt_sgot_bilirubins}</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <h5 class="card-text">Imaging, Assessment, and Plan</h5>
+                            <div class="row">
+                                <div class="col">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Attribute</th>
+                                            <th scope="col">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Normal Salivary Gland</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].normal_salivary_gland}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Right Salivary Gland Obstruction</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].right_obstruction}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Left Salivary Gland Obstruction</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].left_obstruction}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Renal Scintigraphy</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${(data[i].renal_scintigraphy == 'mag3') ? 'MAG3' : ((data[i].renal_scintigraphy == 'dtpa') ? 'DTPA' : data[i].renal_scintigraphy)}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>With Bone Metastasis</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].bone_scan}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Location of Bone Metastasis</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].metastasis_location}</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                                <div class="col">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Attribute</th>
+                                            <th scope="col">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Ga-68/F-18 PSMA</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_ga_psma}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Prostate Lesion Present</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_prostate_a}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Prostate Lesion Location</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_prostate_a_location}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Prostate Lesion SUV</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_prostate_a_suv}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Prostate Lesion Measurement</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_prostate_a_measurement}</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="col">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Attribute</th>
+                                            <th scope="col">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Lymph Node Lesion Present</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_lymph_a}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lymph Node Lesion Location</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_lymph_a_location}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lymph Node Lesion SUV</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_lymph_a_suv}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lymph Node Lesion Measurement</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_lymph_a_measurement}</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                                <div class="col">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Attribute</th>
+                                            <th scope="col">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Bone Lesion Present</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_bone_a}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bone Lesion Location</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_bone_a_location}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bone Lesion SUV</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_bone_a_suv}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bone Lesion Measurement</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_bone_a_measurement}</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="col">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Attribute</th>
+                                            <th scope="col">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Brain Lesion Present</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_brain_a}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Brain Lesion Location</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_brain_a_location}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Brain Lesion SUV</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_brain_a_suv}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Brain Lesion Measurement</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_brain_a_measurement}</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                                <div class="col">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Attribute</th>
+                                            <th scope="col">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Lungs Lesion Present</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_lungs_a}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lungs Lesion Location</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_lungs_a_location}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lungs Lesion SUV</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_lungs_a_suv}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lungs Lesion Measurement</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_lungs_a_measurement}</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="col">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Attribute</th>
+                                            <th scope="col">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Liver Lesion Present</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_liver_a}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Liver Lesion Location</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_liver_a_location}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Liver Lesion SUV</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_liver_a_suv}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Liver Lesion Measurement</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_liver_a_measurement}</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                                <div class="col">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Attribute</th>
+                                            <th scope="col">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Other Lesion Present</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_others_a}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Other Lesion Location</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_others_a_location}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Other Lesion SUV</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_others_a_suv}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Other Lesion Measurement</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_others_a_measurement}</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="col">
+                            <table class="table text-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Attribute</th>
+                                        <th scope="col">Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>FDG PET/CT</td>
+                                        <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_ga_psma}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prostate Lesion Present</td>
+                                        <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_prostate_a}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prostate Lesion Location</td>
+                                        <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_prostate_a_location}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prostate Lesion SUV</td>
+                                        <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_prostate_a_suv}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prostate Lesion Measurement</td>
+                                        <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_prostate_a_measurement}</td>
+                                    </tr>
+                                </tbody>
+                                </table>
+                            </div>
+                            <div class="col">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Attribute</th>
+                                            <th scope="col">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Lymph Node Lesion Present</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_lymph_a}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lymph Node Lesion Location</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_lymph_a_location}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lymph Node Lesion SUV</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_lymph_a_suv}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lymph Node Lesion Measurement</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_lymph_a_measurement}</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="col">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Attribute</th>
+                                            <th scope="col">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Bone Lesion Present</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_bone_a}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bone Lesion Location</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_bone_a_location}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bone Lesion SUV</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_bone_a_suv}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bone Lesion Measurement</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_bone_a_measurement}</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                                <div class="col">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Attribute</th>
+                                            <th scope="col">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Brain Lesion Present</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_brain_a}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Brain Lesion Location</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_brain_a_location}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Brain Lesion SUV</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_brain_a_suv}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Brain Lesion Measurement</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_brain_a_measurement}</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="col">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Attribute</th>
+                                            <th scope="col">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Lungs Lesion Present</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_lungs_a}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lungs Lesion Location</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_lungs_a_location}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lungs Lesion SUV</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_lungs_a_suv}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lungs Lesion Measurement</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_lungs_a_measurement}</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                                <div class="col">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Attribute</th>
+                                            <th scope="col">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Liver Lesion Present</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_liver_a}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Liver Lesion Location</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_liver_a_location}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Liver Lesion SUV</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_liver_a_suv}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Liver Lesion Measurement</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_liver_a_measurement}</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="col">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Attribute</th>
+                                            <th scope="col">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Other Lesion Present</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_others_a}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Other Lesion Location</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_others_a_location}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Other Lesion SUV</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_others_a_suv}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Other Lesion Measurement</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].lesion_others_a_measurement}</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                                <div class="col">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Attribute</th>
+                                            <th scope="col">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Assessment</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${(data[i].assessment == 'low') ? 'Low Risk' : ((data[i].assessment == 'intermediate') ? 'Intermediate Risk' : ((data[i].assessment == 'high') ? 'High Risk' : data[i].assessment))}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Plan</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].plan}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date of Follow-up</td>
+                                            <td class="part4-info-${i+1}" contenteditable=false>${data[i].follow_up_date}</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                                    </div>
+                                    <div class="card text-center" style="margin: 10px">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col edit-btn-cont-p4-${i + 1}" style="display:block">
+                                        <a class="btn btn-outline-secondary mb-3 edit-p4-${i + 1}" id="edit-part4-${i + 1}" >Edit Follow-up #${i + 1}</a>
+                                    </div>
+                                    <div class="col cancel-btn-cont-p4-${i + 1}" style="display:none">
+                                        <a class="btn btn-outline-secondary mb-3 cancel-edit-p4-${i + 1}" id="cancel-edit-part4-${i + 1}">Cancel Edit</a>
+                                    </div>
+                                    <div class="col save-btn-cont-p4-${i + 1}" style="display:none">
+                                        <a class="btn btn-outline-secondary mb-3 save-edit-p4-${i + 1}" id="save-edit-part4-${i + 1}">Save</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        `
+                                </div>
+                                `
+                            }
+                            sessionStorage.setItem('p4_follow_up_ids', p4_follow_up_ids)
+                            
                         }
 
                     })
@@ -1081,6 +1709,7 @@ window.onload = async () => {
 
                 }
             })
+
         const edit_btn_cont = document.querySelector('.edit-btn-cont');
         const edit_part1 = document.querySelector('#edit-part1');
         const part1_info = document.querySelectorAll('.part1-info');
@@ -1103,7 +1732,7 @@ window.onload = async () => {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        patient_code: sessionStorage.getItem('patient_code'),
+                        patient_code: parseInt(sessionStorage.getItem('patient_code')),
                         first_name: (part1_info[0].innerText == 'null' || part1_info[0].innerText == '') ? null : part1_info[0].innerText,
                         last_name: (part1_info[1].innerText == 'null' || part1_info[1].innerText == '') ? null : part1_info[1].innerText,
                         age: (part1_info[2].innerText == 'null' || part1_info[2].innerText == '') ? null : parseInt(part1_info[2].innerText),
@@ -1211,7 +1840,8 @@ window.onload = async () => {
                     })
             })
         })
-        for (let i = 0; i < sessionStorage.getItem('number_of_therapy'); i++) {
+
+        for (let i = 0; i < parseInt(sessionStorage.getItem('number_of_therapy')); i++) {
             const edit_btn_cont_p2 = document.querySelector(`.edit-btn-cont-p2-${i + 1}`);
             const part2_info = document.querySelectorAll(`.part2-info-${i + 1}`);
             const edit_part2 = document.querySelector(`#edit-part2-${i + 1}`)
@@ -1223,6 +1853,211 @@ window.onload = async () => {
                 edit_btn_cont_p2.style.display = 'none';
                 cancel_btn_cont_p2.style.display = 'block';
                 save_btn_cont_p2.style.display = 'block';
+                for (let i = 0; i < part2_info.length; i++) {
+                    part2_info[i].contentEditable = true;
+                }
+                cancel_edit_part2.addEventListener('click', () => {
+                    location.reload();
+                })
+                save_edit_part2.addEventListener('click', () => {
+                    fetch('/request/update/part2', {
+                        method: 'PUT',
+                        headers: new Headers({'Content-Type': 'application/json'}),
+                        body: JSON.stringify({
+                            therapy_id: parseInt(sessionStorage.getItem('p2_therapy_ids').split(',')[i]),
+                            date_radioligand: (part2_info[0].innerText == 'null' || part2_info[0].innerText == '') ? null : part2_info[0].innerText,
+                            meds: (part2_info[3].innerText == 'null' || part2_info[3].innerText == '') ? null : part2_info[3].innerText,
+                            pre_meds: (part2_info[2].innerText == 'null' || part2_info[2].innerText == '') ? null : part2_info[2].innerText,
+                            p2_bp: (part2_info[6].innerText == 'null' || part2_info[6].innerText == '') ? null : part2_info[6].innerText,
+                            p2_hr: (part2_info[7].innerText == 'null' || part2_info[7].innerText == '') ? null : parseFloat(part2_info[7].innerText),
+                            p2_rr: (part2_info[8].innerText == 'null' || part2_info[8].innerText == '') ? null : parseFloat(part2_info[8].innerText),
+                            oxygen_sat: (part2_info[9].innerText == 'null' || part2_info[9].innerText == '') ? null : parseFloat(part2_info[9].innerText),
+                            date_therapy: (part2_info[1].innerText == 'null' || part2_info[1].innerText == '') ? null : part2_info[1].innerText,
+                            radiopharm: (part2_info[4].innerText == 'null' || part2_info[4].innerText == '') ? null : part2_info[4].innerText,
+                            activity: (part2_info[5].innerText == 'null' || part2_info[5].innerText == '') ? null : part2_info[5].innerText,
+                            have_fatigue: (part2_info[10].innerText == 'null' || part2_info[10].innerText == '') ? null : ((part2_info[10].innerText == 'true') ? true : false),
+                            have_nausea_vomitting: (part2_info[11].innerText == 'null' || part2_info[11].innerText == '') ? null : ((part2_info[11].innerText == 'true') ? true : false),
+                            have_dry_lipmouth: (part2_info[12].innerText == 'null' || part2_info[12].innerText == '') ? null : ((part2_info[12].innerText == 'true') ? true : false),
+                            have_headache: (part2_info[13].innerText == 'null' || part2_info[13].innerText == '') ? null : ((part2_info[13].innerText == 'true') ? true : false),
+                            have_bone_pain: (part2_info[14].innerText == 'null' || part2_info[14].innerText == '') ? null : ((part2_info[14].innerText == 'true') ? true : false),
+                            other_side_effect: (part2_info[15].innerText == 'null' || part2_info[15].innerText == '') ? null : ((part2_info[15].innerText == 'true') ? true : false)
+                        })
+                    })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        if (data[0].event = 'success') {
+                            alert(`Patient ${sessionStorage.getItem('first_name')} ${sessionStorage.getItem('last_name')}'s therapy form #${i+1} updated successfully`)
+                            location.reload();
+                        }
+                        else alert(`Error occured while updating therapy form #${i+1} of ${sessionStorage.getItem('first_name')} ${sessionStorage.getItem('last_name')}`)
+                    })
+                })
+                
+            })
+        }
+
+        for (let i = 0; i < parseInt(sessionStorage.getItem('number_of_post_therapy')); i++) {
+            const edit_btn_cont_p3 = document.querySelector(`.edit-btn-cont-p3-${i + 1}`);
+            const part3_info = document.querySelectorAll(`.part3-info-${i + 1}`);
+            const edit_part3 = document.querySelector(`#edit-part3-${i + 1}`)
+            edit_part3.addEventListener('click', () => {
+                const cancel_btn_cont_p3 = document.querySelector(`.cancel-btn-cont-p3-${i+1}`);
+                const save_btn_cont_p3 = document.querySelector(`.save-btn-cont-p3-${i+1}`);
+                const cancel_edit_part3 = document.querySelector(`#cancel-edit-part3-${i+1}`);
+                const save_edit_part3 = document.querySelector(`#save-edit-part3-${i+1}`);
+                edit_btn_cont_p3.style.display = 'none';
+                cancel_btn_cont_p3.style.display = 'block';
+                save_btn_cont_p3.style.display = 'block';
+                for (let i = 0; i < part3_info.length; i++) {
+                    part3_info[i].contentEditable = true;
+                }
+                cancel_edit_part3.addEventListener('click', () => {
+                    location.reload();
+                })
+                save_edit_part3.addEventListener('click', () => {
+                    fetch('/request/update/part3', {
+                        method: 'PUT',
+                        headers: new Headers({'Content-Type': 'application/json'}),
+                        body: JSON.stringify({
+                            post_therapy_id: parseInt(sessionStorage.getItem('p3_therapy_ids').split(',')[i]),
+                            date_post_therapy: (part3_info[0].innerText == 'null' || part3_info[0].innerText == '') ? null : part3_info[0].innerText,
+                            pts_hour: (part3_info[1].innerText == 'null' || part3_info[1].innerText == '') ? null : parseInt(part3_info[1].innerText),
+                            with_spect: (part3_info[2].innerText == 'null' || part3_info[2].innerText == '') ? null : ((part3_info[2].innerText == 'true') ? true : false),
+                            lesion_prostate: (part3_info[6].innerText == 'null' || part3_info[6].innerText == '') ? null : ((part3_info[6].innerText == 'true') ? true : false),
+                            lesion_lymph: (part3_info[7].innerText == 'null' || part3_info[7].innerText == '') ? null : ((part3_info[7].innerText == 'true') ? true : false),
+                            lesion_bones: (part3_info[8].innerText == 'null' || part3_info[8].innerText == '') ? null : ((part3_info[8].innerText == 'true') ? true : false),
+                            lesion_lungs: (part3_info[9].innerText == 'null' || part3_info[9].innerText == '') ? null : ((part3_info[9].innerText == 'true') ? true : false),
+                            lesion_liver: (part3_info[10].innerText == 'null' || part3_info[10].innerText == '') ? null : ((part3_info[10].innerText == 'true') ? true : false),
+                            dosimetry_saliva: (part3_info[3].innerText == 'null' || part3_info[3].innerText == '') ? null : parseFloat(part3_info[3].innerText),
+                            dosimetry_kidney_left: (part3_info[4].innerText == 'null' || part3_info[4].innerText == '') ? null : parseFloat(part3_info[4].innerText),
+                            dosimetry_kidney_right: (part3_info[5].innerText == 'null' || part3_info[5].innerText == '') ? null : parseFloat(part3_info[5].innerText)
+                        })
+                    })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        if (data[0].event = 'success') {
+                            alert(`Patient ${sessionStorage.getItem('first_name')} ${sessionStorage.getItem('last_name')}'s Post-therapy form #${i+1} updated successfully`)
+                            location.reload();
+                        }
+                        else alert(`Error occured while updating Post-therapy form #${i+1} of ${sessionStorage.getItem('first_name')} ${sessionStorage.getItem('last_name')}`)
+                    })
+                })
+                
+            })
+        }
+
+        for (let i = 0; i < parseInt(sessionStorage.getItem('number_of_followup')); i++) {
+            const edit_btn_cont_p4 = document.querySelector(`.edit-btn-cont-p4-${i + 1}`);
+            const part4_info = document.querySelectorAll(`.part4-info-${i + 1}`);
+            const edit_part4 = document.querySelector(`#edit-part4-${i + 1}`)
+            edit_part4.addEventListener('click', () => {
+                const cancel_btn_cont_p4 = document.querySelector(`.cancel-btn-cont-p4-${i+1}`);
+                const save_btn_cont_p4 = document.querySelector(`.save-btn-cont-p4-${i+1}`);
+                const cancel_edit_part4 = document.querySelector(`#cancel-edit-part4-${i+1}`);
+                const save_edit_part4 = document.querySelector(`#save-edit-part4-${i+1}`);
+                edit_btn_cont_p4.style.display = 'none';
+                cancel_btn_cont_p4.style.display = 'block';
+                save_btn_cont_p4.style.display = 'block';
+                for (let i = 0; i < part4_info.length; i++) {
+                    part4_info[i].contentEditable = true;
+                }
+                cancel_edit_part4.addEventListener('click', () => {
+                    location.reload();
+                })
+                save_edit_part4.addEventListener('click', () => {
+                    fetch('/request/update/part4', {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            follow_up_id: parseInt(sessionStorage.getItem('number_of_followup').split(',')[i]),
+                            follow_up_date: (part4_info[76].innerText == 'null' || part4_info[76].innerText == '') ? null : part4_info[76].innerText,
+                            psa: (part4_info[0].innerText == 'null' || part4_info[0].innerText == '') ? null : parseFloat(part4_info[0].innerText),
+                            creatinine: (part4_info[1].innerText == 'null' || part4_info[1].innerText == '') ? null : parseFloat(part4_info[1].innerText),
+                            wbc: (part4_info[2].innerText == 'null' || part4_info[2].innerText == '') ? null : parseFloat(part4_info[2].innerText),
+                            rbc: (part4_info[3].innerText == 'null' || part4_info[3].innerText == '') ? null : parseFloat(part4_info[3].innerText),
+                            hemoglobin: (part4_info[4].innerText == 'null' || part4_info[4].innerText == '') ? null : parseFloat(part4_info[4].innerText),
+                            hematocrit: (part4_info[5].innerText == 'null' || part4_info[5].innerText == '') ? null : parseFloat(part4_info[5].innerText),
+                            platelet_count: (part4_info[6].innerText == 'null' || part4_info[6].innerText == '') ? null : parseFloat(part4_info[6].innerText),
+                            lactate_dehydrogenase: (part4_info[7].innerText == 'null' || part4_info[7].innerText == '') ? null : parseFloat(part4_info[7].innerText),
+                            alkaline_phosphatase: (part4_info[8].innerText == 'null' || part4_info[8].innerText == '') ? null : parseFloat(part4_info[8].innerText),
+                            sgpt_sgot_bilirubins: (part4_info[9].innerText == 'null' || part4_info[9].innerText == '') ? null : parseFloat(part4_info[9].innerText),
+                            normal_salivary_gland: (part4_info[10].innerText == 'null' || part4_info[10].innerText == '') ? null : ((part4_info[10].innerText == 'true') ? true : false),
+                            right_obstruction: (part4_info[11].innerText == 'null' || part4_info[11].innerText == '') ? null : ((part4_info[11].innerText == 'true') ? true : false),
+                            left_obstruction: (part4_info[12].innerText == 'null' || part4_info[12].innerText == '') ? null : ((part4_info[12].innerText == 'true') ? true : false),
+                            renal_scintigraphy: (part4_info[13].innerText == 'null' || part4_info[13].innerText == '') ? null : part4_info[13].innerText,
+                            bone_scan: (part4_info[14].innerText == 'null' || part4_info[14].innerText == '') ? null : ((part4_info[14].innerText == 'true') ? true : false),
+                            metastasis_location: (part4_info[15].innerText == 'null' || part4_info[15].innerText == '') ? null : part4_info[15].innerText,
+                            lesion_ga_psma: (part4_info[16].innerText == 'null' || part4_info[16].innerText == '') ? null : part4_info[16].innerText,
+                            lesion_prostate_a: (part4_info[17].innerText == 'null' || part4_info[17].innerText == '') ? null : ((part4_info[17].innerText == 'true') ? true : false),
+                            lesion_prostate_a_location: (part4_info[18].innerText == 'null' || part4_info[18].innerText == '') ? null : part4_info[18].innerText,
+                            lesion_prostate_a_suv: (part4_info[19].innerText == 'null' || part4_info[19].innerText == '') ? null : parseFloat(part4_info[19].innerText),
+                            lesion_prostate_a_measurement: (part4_info[20].innerText == 'null' || part4_info[20].innerText == '') ? null : parseFloat(part4_info[20].innerText),
+                            lesion_lymph_a: (part4_info[21].innerText == 'null' || part4_info[21].innerText == '') ? null : ((part4_info[21].innerText == 'true') ? true : false),
+                            lesion_lymph_a_location: (part4_info[22].innerText == 'null' || part4_info[22].innerText == '') ? null : part4_info[22].innerText,
+                            lesion_lymph_a_suv: (part4_info[23].innerText == 'null' || part4_info[23].innerText == '') ? null : parseFloat(part4_info[23].innerText),
+                            lesion_lymph_a_measurement: (part4_info[24].innerText == 'null' || part4_info[24].innerText == '') ? null : parseFloat(part4_info[24].innerText),
+                            lesion_bone_a: (part4_info[25].innerText == 'null' || part4_info[25].innerText == '') ? null : ((part4_info[25].innerText == 'true') ? true : false),
+                            lesion_bone_a_location: (part4_info[26].innerText == 'null' || part4_info[26].innerText == '') ? null : part4_info[26].innerText,
+                            lesion_bone_a_suv: (part4_info[27].innerText == 'null' || part4_info[27].innerText == '') ? null : parseFloat(part4_info[27].innerText),
+                            lesion_bone_a_measurement: (part4_info[28].innerText == 'null' || part4_info[28].innerText == '') ? null : parseFloat(part4_info[28].innerText),
+                            lesion_brain_a: (part4_info[29].innerText == 'null' || part4_info[29].innerText == '') ? null : ((part4_info[29].innerText == 'true') ? true : false),
+                            lesion_brain_a_location: (part4_info[30].innerText == 'null' || part4_info[30].innerText == '') ? null : part4_info[30].innerText,
+                            lesion_brain_a_suv: (part4_info[31].innerText == 'null' || part4_info[31].innerText == '') ? null : parseFloat(part4_info[31].innerText),
+                            lesion_brain_a_measurement: (part4_info[32].innerText == 'null' || part4_info[32].innerText == '') ? null : parseFloat(part4_info[32].innerText),
+                            lesion_lungs_a: (part4_info[33].innerText == 'null' || part4_info[33].innerText == '') ? null : ((part4_info[33].innerText == 'true') ? true : false),
+                            lesion_lungs_a_location: (part4_info[34].innerText == 'null' || part4_info[34].innerText == '') ? null : part4_info[34].innerText,
+                            lesion_lungs_a_suv: (part4_info[35].innerText == 'null' || part4_info[35].innerText == '') ? null : parseFloat(part4_info[35].innerText),
+                            lesion_lungs_a_measurement: (part4_info[36].innerText == 'null' || part4_info[36].innerText == '') ? null : parseFloat(part4_info[36].innerText),
+                            lesion_liver_a: (part4_info[37].innerText == 'null' || part4_info[37].innerText == '') ? null : ((part4_info[37].innerText == 'true') ? true : false),
+                            lesion_liver_a_location: (part4_info[38].innerText == 'null' || part4_info[38].innerText == '') ? null : part4_info[38].innerText,
+                            lesion_liver_a_suv: (part4_info[39].innerText == 'null' || part4_info[39].innerText == '') ? null : parseFloat(part4_info[39].innerText),
+                            lesion_liver_a_measurement: (part4_info[40].innerText == 'null' || part4_info[40].innerText == '') ? null : parseFloat(part4_info[40].innerText),
+                            lesion_others_a: (part4_info[41].innerText == 'null' || part4_info[41].innerText == '') ? null : ((part4_info[41].innerText == 'true') ? true : false),
+                            lesion_others_a_location: (part4_info[42].innerText == 'null' || part4_info[42].innerText == '') ? null : part4_info[42].innerText,
+                            lesion_others_a_suv: (part4_info[43].innerText == 'null' || part4_info[43].innerText == '') ? null : parseFloat(part4_info[43].innerText),
+                            lesion_others_a_measurement: (part4_info[44].innerText == 'null' || part4_info[44].innerText == '') ? null : parseFloat(part4_info[44].innerText),
+                            lesion_fdg_ctr: (part4_info[45].innerText == 'null' || part4_info[45].innerText == '') ? null : ((part4_info[45].innerText == 'true') ? true : false),
+                            lesion_prostate_b: (part4_info[46].innerText == 'null' || part4_info[46].innerText == '') ? null : ((part4_info[46].innerText == 'true') ? true : false),
+                            lesion_prostate_b_location: (part4_info[47].innerText == 'null' || part4_info[47].innerText == '') ? null : part4_info[47].innerText,
+                            lesion_prostate_b_suv: (part4_info[48].innerText == 'null' || part4_info[48].innerText == '') ? null : parseFloat(part4_info[48].innerText),
+                            lesion_prostate_b_measurement: (part4_info[49].innerText == 'null' || part4_info[49].innerText == '') ? null : parseFloat(part4_info[49].innerText),
+                            lesion_lymph_b: (part4_info[50].innerText == 'null' || part4_info[50].innerText == '') ? null : ((part4_info[50].innerText == 'true') ? true : false),
+                            lesion_lymph_b_location: (part4_info[51].innerText == 'null' || part4_info[51].innerText == '') ? null : part4_info[51].innerText,
+                            lesion_lymph_b_suv: (part4_info[52].innerText == 'null' || part4_info[52].innerText == '') ? null : parseFloat(part4_info[52].innerText),
+                            lesion_lymph_b_measurement: (part4_info[53].innerText == 'null' || part4_info[53].innerText == '') ? null : parseFloat(part4_info[53].innerText),
+                            lesion_bone_b: (part4_info[54].innerText == 'null' || part4_info[54].innerText == '') ? null : ((part4_info[54].innerText == 'true') ? true : false),
+                            lesion_bone_b_location: (part4_info[55].innerText == 'null' || part4_info[55].innerText == '') ? null : part4_info[55].innerText,
+                            lesion_bone_b_suv: (part4_info[56].innerText == 'null' || part4_info[56].innerText == '') ? null : parseFloat(part4_info[56].innerText),
+                            lesion_bone_b_measurement: (part4_info[57].innerText == 'null' || part4_info[57].innerText == '') ? null : parseFloat(part4_info[57].innerText),
+                            lesion_brain_b: (part4_info[58].innerText == 'null' || part4_info[58].innerText == '') ? null : ((part4_info[58].innerText == 'true') ? true : false),
+                            lesion_brain_b_location: (part4_info[59].innerText == 'null' || part4_info[59].innerText == '') ? null : part4_info[59].innerText,
+                            lesion_brain_b_suv: (part4_info[60].innerText == 'null' || part4_info[60].innerText == '') ? null : parseFloat(part4_info[60].innerText),
+                            lesion_brain_b_measurement: (part4_info[61].innerText == 'null' || part4_info[61].innerText == '') ? null : parseFloat(part4_info[61].innerText),
+                            lesion_lungs_b: (part4_info[62].innerText == 'null' || part4_info[62].innerText == '') ? null : ((part4_info[62].innerText == 'true') ? true : false),
+                            lesion_lungs_b_location: (part4_info[63].innerText == 'null' || part4_info[63].innerText == '') ? null : part4_info[63].innerText,
+                            lesion_lungs_b_suv: (part4_info[64].innerText == 'null' || part4_info[64].innerText == '') ? null : parseFloat(part4_info[64].innerText),
+                            lesion_lungs_b_measurement: (part4_info[65].innerText == 'null' || part4_info[65].innerText == '') ? null : parseFloat(part4_info[65].innerText),
+                            lesion_liver_b: (part4_info[66].innerText == 'null' || part4_info[66].innerText == '') ? null : ((part4_info[66].innerText == 'true') ? true : false),
+                            lesion_liver_b_location: (part4_info[67].innerText == 'null' || part4_info[67].innerText == '') ? null : part4_info[67].innerText,
+                            lesion_liver_b_suv: (part4_info[68].innerText == 'null' || part4_info[68].innerText == '') ? null : parseFloat(part4_info[68].innerText),
+                            lesion_liver_b_measurement: (part4_info[69].innerText == 'null' || part4_info[69].innerText == '') ? null : parseFloat(part4_info[69].innerText),
+                            lesion_others_b: (part4_info[70].innerText == 'null' || part4_info[70].innerText == '') ? null : ((part4_info[70].innerText == 'true') ? true : false),
+                            lesion_others_b_location: (part4_info[71].innerText == 'null' || part4_info[71].innerText == '') ? null : part4_info[71].innerText,
+                            lesion_others_b_suv: (part4_info[72].innerText == 'null' || part4_info[72].innerText == '') ? null : parseFloat(part4_info[72].innerText),
+                            lesion_others_b_measurement: (part4_info[73].innerText == 'null' || part4_info[73].innerText == '') ? null : parseFloat(part4_info[73].innerText),
+                            assessment: (part4_info[74].innerText == 'null' || part4_info[74].innerText == '') ? null : ((part4_info[74].innerText == 'Low Risk') ? 'low' : ((part4_info[74].innerText == 'High Risk') ? 'high' : ((part4_info[74].innerText == 'Intermediate Risk') ? 'intermediate' : part4_info[3].innerText))),
+                            plan: (part4_info[75].innerText == 'null' || part4_info[75].innerText == '') ? null : part4_info[75].innerText
+                        })
+                    })
+                        .then((res) => res.json())
+                        .then((data) => {
+                            if (data[0].event = 'success') {
+                                alert(`Patient ${sessionStorage.getItem('first_name')} ${sessionStorage.getItem('last_name')} follow-up #${i+1} updated successfully`)
+                                location.reload();
+                            }
+                            else alert(`Error occured while updating patient ${sessionStorage.getItem('first_name')} ${sessionStorage.getItem('last_name')}'s follow-up #${i+1}`)
+                        })
+                })
                 
             })
         }

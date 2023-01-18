@@ -84,14 +84,26 @@ count_select.addEventListener('change', () => {
             //temporarily make it 3
             subextra.innerHTML = `
             <div class="form-floating mb-3">
-            <select class="form-select selections" aria-label="select number" id="selection" style="width: 50%;">
+            <select class="form-select selections max_num_of_post" aria-label="select number" id="selection" style="width: 50%;">
                 <option selected value="none"></option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
             </select>
             <label for="selection">number</label>
         </div>`
+        const max_num_of_post = document.querySelector('.max_num_of_post')
+        fetch('/request/max-postscan', {
+            method: 'GET',
+            headers: new Headers({'Content-Type': 'application/json'})
+        })
+        .then(res => res.json())
+        .then((data) => {
+            const maxnum = data[0].count;
+            for(let i = 1; i <= maxnum; i++){
+                const opt = document.createElement('option');
+                opt.value = i;
+                opt.innerHTML = i;
+                max_num_of_post.appendChild(opt);
+            }
+        })
         }
         })
     }
@@ -101,13 +113,141 @@ submit_btn.addEventListener('click', () => {
     const selection = document.querySelectorAll('.selections');
     if (count_select.value === 'none') alert('Please select a count category')
     else if (count_select.value === 'assessment') {
-        selection.forEach((sel) => {
-            console.log(sel.value)
+        fetch(`/request/count-assessment?assessment=${selection[1].value}`, {
+            method: 'GET',
+            headers: new Headers({'Content-Type': 'application/json'})
+        })
+        .then(res => res.json())
+        .then(data => {
+            const results = document.querySelector('.results');
+            results.style.display = 'block';
+            results.innerHTML =
+            `<div class="card-header">Number of Patients: <span class="number-of-patients">${data.length}</span></div>
+            <div class="card-body list-of-patients" style="display:none;"></div>`
+            const number_of_patients = document.querySelector('.number-of-patients')
+            number_of_patients.addEventListener('click', () => {
+                const list_of_patients = document.querySelector('.list-of-patients');
+                list_of_patients.style.display = 'block';
+                if (data.length == 0){
+                    list_of_patients.innerHTML = ''
+                    const nothing_found = document.createElement('p');
+                    nothing_found.className = 'card-text text-center';
+                    nothing_found.innerHTML = 'Nothing found.';
+                    list_of_patients.appendChild(nothing_found);
+                }
+                else {
+                    list_of_patients.innerHTML = ''
+                    const res_table = document.createElement('table');
+                    res_table.className = 'table text-center';
+                    const tbl_header = document.createElement('thead');
+                    const tbl_header_row = document.createElement('tr');
+                    const col_1 = document.createElement('th')
+                    const col_2 = document.createElement('th')
+                 
+                    col_1.scope = 'col'
+                    col_2.scope = 'col'
+                
+                  
+                    col_1.innerHTML = 'Patient Code'
+                    col_2.innerHTML = 'Patient Name'
+                  
+                    const tbl_body = document.createElement('tbody')
+                    for(let i = 0; i < data.length; i++){
+                        const tbl_row = document.createElement('tr')
+                        tbl_row.innerHTML = `<th scope='col'>${data[i].patient_code}</th>`
+                        const btn = document.createElement('td')
+                        btn.innerHTML = `${data[i].first_name} ${data[i].last_name}` 
+
+                        btn.addEventListener('click', () => {
+                            sessionStorage.setItem('patient_code', data[i].patient_code)
+                            sessionStorage.setItem('first_name', data[i].first_name)
+                            sessionStorage.setItem('last_name', data[i].last_name)
+                            location.href = '/view-patient'
+                        })
+                       
+                        tbl_row.appendChild(btn)
+                        tbl_body.appendChild(tbl_row)
+                    }
+    
+    
+                    tbl_header_row.appendChild(col_1)
+                    tbl_header_row.appendChild(col_2)
+
+                    tbl_header.appendChild(tbl_header_row)
+                    res_table.appendChild(tbl_header)
+                    res_table.appendChild(tbl_body)
+                    list_of_patients.appendChild(res_table)
+                }
+            })
         })
     }
     else if (count_select.value === 'metastasis') {
-        selection.forEach((sel) => {
-            console.log(sel.value)
+        fetch(`/request/count-metastasis`, {
+            method: 'GET',
+            headers: new Headers({'Content-Type': 'application/json'})
+        })
+        .then(res => res.json())
+        .then(data => {
+            const results = document.querySelector('.results');
+            results.style.display = 'block';
+            results.innerHTML =
+            `<div class="card-header">Number of Patients: <span class="number-of-patients">${data.length}</span></div>
+            <div class="card-body list-of-patients" style="display:none;"></div>`
+            const number_of_patients = document.querySelector('.number-of-patients')
+            number_of_patients.addEventListener('click', () => {
+                const list_of_patients = document.querySelector('.list-of-patients');
+                list_of_patients.style.display = 'block';
+                if (data.length == 0){
+                    list_of_patients.innerHTML = ''
+                    const nothing_found = document.createElement('p');
+                    nothing_found.className = 'card-text text-center';
+                    nothing_found.innerHTML = 'Nothing found.';
+                    list_of_patients.appendChild(nothing_found);
+                }
+                else {
+                    list_of_patients.innerHTML = ''
+                    const res_table = document.createElement('table');
+                    res_table.className = 'table text-center';
+                    const tbl_header = document.createElement('thead');
+                    const tbl_header_row = document.createElement('tr');
+                    const col_1 = document.createElement('th')
+                    const col_2 = document.createElement('th')
+                 
+                    col_1.scope = 'col'
+                    col_2.scope = 'col'
+                
+                  
+                    col_1.innerHTML = 'Patient Code'
+                    col_2.innerHTML = 'Patient Name'
+                  
+                    const tbl_body = document.createElement('tbody')
+                    for(let i = 0; i < data.length; i++){
+                        const tbl_row = document.createElement('tr')
+                        tbl_row.innerHTML = `<th scope='col'>${data[i].patient_code}</th>`
+                        const btn = document.createElement('td')
+                        btn.innerHTML = `${data[i].first_name} ${data[i].last_name}` 
+
+                        btn.addEventListener('click', () => {
+                            sessionStorage.setItem('patient_code', data[i].patient_code)
+                            sessionStorage.setItem('first_name', data[i].first_name)
+                            sessionStorage.setItem('last_name', data[i].last_name)
+                            location.href = '/view-patient'
+                        })
+                       
+                        tbl_row.appendChild(btn)
+                        tbl_body.appendChild(tbl_row)
+                    }
+    
+    
+                    tbl_header_row.appendChild(col_1)
+                    tbl_header_row.appendChild(col_2)
+
+                    tbl_header.appendChild(tbl_header_row)
+                    res_table.appendChild(tbl_header)
+                    res_table.appendChild(tbl_body)
+                    list_of_patients.appendChild(res_table)
+                }
+            })
         })
     }
     else if (count_select.value === 'lesions') {
@@ -115,17 +255,297 @@ submit_btn.addEventListener('click', () => {
             console.log(sel.value)
         })
         const checks = document.querySelectorAll('.checks')
-        var count = 0
         checks.forEach((check) => {
-            if (check.checked) console.log(check.value)
-            else count++
-
+            console.log(check.value)
         })
-        if (count == 7) alert('Please select a lesion location')
+        var queryBody = []
+        if (checks[0].checked) queryBody.push('prostate=true')
+        if (checks[1].checked) queryBody.push('lymph=true')
+        if (checks[2].checked) queryBody.push('bone=true')
+        if (checks[3].checked) queryBody.push('brain=true')
+        if (checks[4].checked) queryBody.push('lungs=true')
+        if (checks[5].checked) queryBody.push('liver=true')
+        if (checks[6].checked) queryBody.push('others=true')
+        var queryString = queryBody.join('&')
+        if (selection[1].value == 'imaging') {
+            if (selection[2].value == 'screening') {
+                fetch(`/request/count-lesion-part1?${queryString}`, {
+                    method: 'GET',
+                    headers: new Headers({'Content-Type': 'application/json'})
+                })
+                .then(res => res.json())
+                .then(data => {
+                    const results = document.querySelector('.results');
+                    results.style.display = 'block';
+                    results.innerHTML =
+                    `<div class="card-header">Number of Patients: <span class="number-of-patients">${data.length}</span></div>
+                    <div class="card-body list-of-patients" style="display:none;"></div>`
+                    const number_of_patients = document.querySelector('.number-of-patients')
+                    number_of_patients.addEventListener('click', () => {
+                        const list_of_patients = document.querySelector('.list-of-patients');
+                        list_of_patients.style.display = 'block';
+                        if (data.length == 0){
+                            list_of_patients.innerHTML = ''
+                            const nothing_found = document.createElement('p');
+                            nothing_found.className = 'card-text text-center';
+                            nothing_found.innerHTML = 'Nothing found.';
+                            list_of_patients.appendChild(nothing_found);
+                        }
+                        else {
+                            list_of_patients.innerHTML = ''
+                            const res_table = document.createElement('table');
+                            res_table.className = 'table text-center';
+                            const tbl_header = document.createElement('thead');
+                            const tbl_header_row = document.createElement('tr');
+                            const col_1 = document.createElement('th')
+                            const col_2 = document.createElement('th')
+                         
+                            col_1.scope = 'col'
+                            col_2.scope = 'col'
+                        
+                          
+                            col_1.innerHTML = 'Patient Code'
+                            col_2.innerHTML = 'Patient Name'
+                          
+                            const tbl_body = document.createElement('tbody')
+                            for(let i = 0; i < data.length; i++){
+                                const tbl_row = document.createElement('tr')
+                                tbl_row.innerHTML = `<th scope='col'>${data[i].patient_code}</th>`
+                                const btn = document.createElement('td')
+                                btn.innerHTML = `${data[i].first_name} ${data[i].last_name}` 
+        
+                                btn.addEventListener('click', () => {
+                                    sessionStorage.setItem('patient_code', data[i].patient_code)
+                                    sessionStorage.setItem('first_name', data[i].first_name)
+                                    sessionStorage.setItem('last_name', data[i].last_name)
+                                    location.href = '/view-patient'
+                                })
+                               
+                                tbl_row.appendChild(btn)
+                                tbl_body.appendChild(tbl_row)
+                            }
+            
+            
+                            tbl_header_row.appendChild(col_1)
+                            tbl_header_row.appendChild(col_2)
+        
+                            tbl_header.appendChild(tbl_header_row)
+                            res_table.appendChild(tbl_header)
+                            res_table.appendChild(tbl_body)
+                            list_of_patients.appendChild(res_table)
+                        }
+                    })
+                })
+            }
+            else if (selection[2].value == 'followup') {
+                fetch(`/request/count-lesion-part4?${queryString}`, {
+                    method: 'GET',
+                    headers: new Headers({'Content-Type': 'application/json'})
+                })
+                .then(res => res.json())
+                .then(data => {
+                    const results = document.querySelector('.results');
+                    results.style.display = 'block';
+                    results.innerHTML =
+                    `<div class="card-header">Number of Patients: <span class="number-of-patients">${data.length}</span></div>
+                    <div class="card-body list-of-patients" style="display:none;"></div>`
+                    const number_of_patients = document.querySelector('.number-of-patients')
+                    number_of_patients.addEventListener('click', () => {
+                        const list_of_patients = document.querySelector('.list-of-patients');
+                        list_of_patients.style.display = 'block';
+                        if (data.length == 0){
+                            list_of_patients.innerHTML = ''
+                            const nothing_found = document.createElement('p');
+                            nothing_found.className = 'card-text text-center';
+                            nothing_found.innerHTML = 'Nothing found.';
+                            list_of_patients.appendChild(nothing_found);
+                        }
+                        else {
+                            list_of_patients.innerHTML = ''
+                            const res_table = document.createElement('table');
+                            res_table.className = 'table text-center';
+                            const tbl_header = document.createElement('thead');
+                            const tbl_header_row = document.createElement('tr');
+                            const col_1 = document.createElement('th')
+                            const col_2 = document.createElement('th')
+                         
+                            col_1.scope = 'col'
+                            col_2.scope = 'col'
+                        
+                          
+                            col_1.innerHTML = 'Patient Code'
+                            col_2.innerHTML = 'Patient Name'
+                          
+                            const tbl_body = document.createElement('tbody')
+                            for(let i = 0; i < data.length; i++){
+                                const tbl_row = document.createElement('tr')
+                                tbl_row.innerHTML = `<th scope='col'>${data[i].patient_code}</th>`
+                                const btn = document.createElement('td')
+                                btn.innerHTML = `${data[i].first_name} ${data[i].last_name}` 
+        
+                                btn.addEventListener('click', () => {
+                                    sessionStorage.setItem('patient_code', data[i].patient_code)
+                                    sessionStorage.setItem('first_name', data[i].first_name)
+                                    sessionStorage.setItem('last_name', data[i].last_name)
+                                    location.href = '/view-patient'
+                                })
+                               
+                                tbl_row.appendChild(btn)
+                                tbl_body.appendChild(tbl_row)
+                            }
+            
+            
+                            tbl_header_row.appendChild(col_1)
+                            tbl_header_row.appendChild(col_2)
+        
+                            tbl_header.appendChild(tbl_header_row)
+                            res_table.appendChild(tbl_header)
+                            res_table.appendChild(tbl_body)
+                            list_of_patients.appendChild(res_table)
+                        }
+                    })
+                })
+            }
+        }
+        else if (selection[1].value == 'postscan'){
+            queryString += `&num=${selection[2].value}`
+            fetch(`/request/count-lesion-part3?${queryString}`, {
+                method: 'GET',
+                headers: new Headers({'Content-Type': 'application/json'})
+            })
+            .then(res => res.json())
+            .then(data => {
+                const results = document.querySelector('.results');
+                results.style.display = 'block';
+                results.innerHTML =
+                `<div class="card-header">Number of Patients: <span class="number-of-patients">${data.length}</span></div>
+                <div class="card-body list-of-patients" style="display:none;"></div>`
+                const number_of_patients = document.querySelector('.number-of-patients')
+                number_of_patients.addEventListener('click', () => {
+                    const list_of_patients = document.querySelector('.list-of-patients');
+                    list_of_patients.style.display = 'block';
+                    if (data.length == 0){
+                        list_of_patients.innerHTML = ''
+                        const nothing_found = document.createElement('p');
+                        nothing_found.className = 'card-text text-center';
+                        nothing_found.innerHTML = 'Nothing found.';
+                        list_of_patients.appendChild(nothing_found);
+                    }
+                    else {
+                        list_of_patients.innerHTML = ''
+                        const res_table = document.createElement('table');
+                        res_table.className = 'table text-center';
+                        const tbl_header = document.createElement('thead');
+                        const tbl_header_row = document.createElement('tr');
+                        const col_1 = document.createElement('th')
+                        const col_2 = document.createElement('th')
+                     
+                        col_1.scope = 'col'
+                        col_2.scope = 'col'
+                    
+                      
+                        col_1.innerHTML = 'Patient Code'
+                        col_2.innerHTML = 'Patient Name'
+                      
+                        const tbl_body = document.createElement('tbody')
+                        for(let i = 0; i < data.length; i++){
+                            const tbl_row = document.createElement('tr')
+                            tbl_row.innerHTML = `<th scope='col'>${data[i].patient_code}</th>`
+                            const btn = document.createElement('td')
+                            btn.innerHTML = `${data[i].first_name} ${data[i].last_name}` 
+    
+                            btn.addEventListener('click', () => {
+                                sessionStorage.setItem('patient_code', data[i].patient_code)
+                                sessionStorage.setItem('first_name', data[i].first_name)
+                                sessionStorage.setItem('last_name', data[i].last_name)
+                                location.href = '/view-patient'
+                            })
+                           
+                            tbl_row.appendChild(btn)
+                            tbl_body.appendChild(tbl_row)
+                        }
+        
+        
+                        tbl_header_row.appendChild(col_1)
+                        tbl_header_row.appendChild(col_2)
+    
+                        tbl_header.appendChild(tbl_header_row)
+                        res_table.appendChild(tbl_header)
+                        res_table.appendChild(tbl_body)
+                        list_of_patients.appendChild(res_table)
+                    }
+                })
+            })
+        }
+        
     }
     else if (count_select.value === 'side') {
-        selection.forEach((sel) => {
-            console.log(sel.value)
+        fetch(`/request/count-sideeffects`, {
+            method: 'GET',
+            headers: new Headers({'Content-Type': 'application/json'})
+        })
+        .then(res => res.json())
+        .then(data => {
+            const results = document.querySelector('.results');
+            results.style.display = 'block';
+            results.innerHTML =
+            `<div class="card-header">Number of Patients: <span class="number-of-patients">${data.length}</span></div>
+            <div class="card-body list-of-patients" style="display:none;"></div>`
+            const number_of_patients = document.querySelector('.number-of-patients')
+            number_of_patients.addEventListener('click', () => {
+                const list_of_patients = document.querySelector('.list-of-patients');
+                list_of_patients.style.display = 'block';
+                if (data.length == 0){
+                    list_of_patients.innerHTML = ''
+                    const nothing_found = document.createElement('p');
+                    nothing_found.className = 'card-text text-center';
+                    nothing_found.innerHTML = 'Nothing found.';
+                    list_of_patients.appendChild(nothing_found);
+                }
+                else {
+                    list_of_patients.innerHTML = ''
+                    const res_table = document.createElement('table');
+                    res_table.className = 'table text-center';
+                    const tbl_header = document.createElement('thead');
+                    const tbl_header_row = document.createElement('tr');
+                    const col_1 = document.createElement('th')
+                    const col_2 = document.createElement('th')
+                 
+                    col_1.scope = 'col'
+                    col_2.scope = 'col'
+                
+                  
+                    col_1.innerHTML = 'Patient Code'
+                    col_2.innerHTML = 'Patient Name'
+                  
+                    const tbl_body = document.createElement('tbody')
+                    for(let i = 0; i < data.length; i++){
+                        const tbl_row = document.createElement('tr')
+                        tbl_row.innerHTML = `<th scope='col'>${data[i].patient_code}</th>`
+                        const btn = document.createElement('td')
+                        btn.innerHTML = `${data[i].first_name} ${data[i].last_name}` 
+
+                        btn.addEventListener('click', () => {
+                            sessionStorage.setItem('patient_code', data[i].patient_code)
+                            sessionStorage.setItem('first_name', data[i].first_name)
+                            sessionStorage.setItem('last_name', data[i].last_name)
+                            location.href = '/view-patient'
+                        })
+                       
+                        tbl_row.appendChild(btn)
+                        tbl_body.appendChild(tbl_row)
+                    }
+    
+    
+                    tbl_header_row.appendChild(col_1)
+                    tbl_header_row.appendChild(col_2)
+
+                    tbl_header.appendChild(tbl_header_row)
+                    res_table.appendChild(tbl_header)
+                    res_table.appendChild(tbl_body)
+                    list_of_patients.appendChild(res_table)
+                }
+            })
         })
     }
 })
