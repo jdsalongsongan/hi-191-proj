@@ -37,8 +37,8 @@ router.get('/post-therapy', (req, res) => {
 })
 
 router.get('/followup', (req, res) => {
-    db('part3').select()
-    .where('part3.patient_id', req.query['patient_code'])
+    db('part4').select()
+    .where('part4.patient_id', req.query['patient_code'])
     .returning()
     .then((data) => res.json(data))
 })

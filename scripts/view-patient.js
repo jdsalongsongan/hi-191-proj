@@ -10,17 +10,17 @@ window.onload = async () => {
             .then((data) => {
                 if (data.length != 0) {
                     const part1_lesion = (data[0].lesion_prostate_a != null || !data[0].lesion_prostate_a) ||
-                    (data[0].lesion_lymph_a != null || !data[0].lesion_lymph_a) || (data[0].lesion_bone_a != null || !data[0].lesion_bone_a) ||
-                    (data[0].lesion_brain_a != null || !data[0].lesion_brain_a) || (data[0].lesion_lungs_a != null || !data[0].lesion_lungs_a) ||
-                    (data[0].lesion_liver_a != null || !data[0].lesion_liver_a) || (data[0].lesion_others_a != null || !data[0].lesion_others_a) ||
-                    (data[0].lesion_prostate_b != null || !data[0].lesion_prostate_b) ||
-                    (data[0].lesion_lymph_b != null || !data[0].lesion_lymph_b) || (data[0].lesion_bone_b != null || !data[0].lesion_bone_b) ||
-                    (data[0].lesion_brain_b != null || !data[0].lesion_brain_b) || (data[0].lesion_lungs_b != null || !data[0].lesion_lungs_b) ||
-                    (data[0].lesion_liver_b != null || !data[0].lesion_liver_b) || (data[0].lesion_others_b != null || !data[0].lesion_others_b)
+                        (data[0].lesion_lymph_a != null || !data[0].lesion_lymph_a) || (data[0].lesion_bone_a != null || !data[0].lesion_bone_a) ||
+                        (data[0].lesion_brain_a != null || !data[0].lesion_brain_a) || (data[0].lesion_lungs_a != null || !data[0].lesion_lungs_a) ||
+                        (data[0].lesion_liver_a != null || !data[0].lesion_liver_a) || (data[0].lesion_others_a != null || !data[0].lesion_others_a) ||
+                        (data[0].lesion_prostate_b != null || !data[0].lesion_prostate_b) ||
+                        (data[0].lesion_lymph_b != null || !data[0].lesion_lymph_b) || (data[0].lesion_bone_b != null || !data[0].lesion_bone_b) ||
+                        (data[0].lesion_brain_b != null || !data[0].lesion_brain_b) || (data[0].lesion_lungs_b != null || !data[0].lesion_lungs_b) ||
+                        (data[0].lesion_liver_b != null || !data[0].lesion_liver_b) || (data[0].lesion_others_b != null || !data[0].lesion_others_b)
                     sessionStorage.setItem('part1_lesion', part1_lesion)
                     const patient_info_body = document.querySelector('.patient-info-body')
                     patient_info_body.innerHTML = `
-                    <div class="card">
+                    <div class="card part1" style="margin-bottom:5px">
                         <h5 class="card-header">Demographics, Physical Exam, and Screening</h5>
                         <div class="card-body">
                             <h5 class="card-text">Demographic Information</h5>
@@ -711,177 +711,236 @@ window.onload = async () => {
                             </div>
                         </div>
                     </div>`
-                    const edit_btn_cont = document.querySelector('.edit-btn-cont');
-                    const edit_part1 = document.querySelector('#edit-part1');
-                    const part1_info = document.querySelectorAll('.part1-info')
-                    edit_part1.addEventListener('click', () => {
-                        const cancel_btn_cont = document.querySelector('.cancel-btn-cont');
-                        const save_btn_cont = document.querySelector('.save-btn-cont');
-                        const cancel_edit_part1 = document.querySelector('#cancel-edit-part1');
-                        const save_edit_part1 = document.querySelector('#save-edit-part1');
-                        edit_btn_cont.style.display = 'none';
-                        cancel_btn_cont.style.display = 'block';
-                        save_btn_cont.style.display = 'block';
-                        for (i = 0; i < part1_info.length; i++) {
-                            part1_info[i].contentEditable = true;
-                        }
-                        cancel_edit_part1.addEventListener('click', () => {
-                            location.reload();
-                        })
-                        save_edit_part1.addEventListener('click', () => {
-                            fetch('/request/update/part1', {
-                                method: 'PUT',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify({
-                                    patient_code: sessionStorage.getItem('patient_code'),
-                                    first_name: (part1_info[0].innerText == 'null' || part1_info[0].innerText == '')? null : part1_info[0].innerText,
-                                    last_name: (part1_info[1].innerText == 'null' || part1_info[1].innerText == '')? null : part1_info[1].innerText,
-                                    age: (part1_info[2].innerText == 'null' || part1_info[2].innerText == '')? null : parseInt(part1_info[2].innerText),
-                                    city_of_residence: (part1_info[3].innerText == 'null' || part1_info[3].innerText == '')? null : part1_info[3].innerText,
-                                    date_of_diagnosis: (part1_info[4].innerText == 'null' || part1_info[4].innerText == '')? null : part1_info[4].innerText,
-                                    date_of_surgery: (part1_info[5].innerText == 'null' || part1_info[5].innerText == '')? null : part1_info[5].innerText,
-                                    histopath_result: (part1_info[6].innerText == 'null' || part1_info[6].innerText == '')? null : part1_info[6].innerText,
-                                    gleason_score: (part1_info[7].innerText == 'null' || part1_info[7].innerText == '')? null : parseInt(part1_info[7].innerText),
-                                    date_of_treatment: (part1_info[8].innerText == 'null' || part1_info[8].innerText == '')? null : part1_info[8].innerText,
-                                    treatment_type: (part1_info[9].innerText == 'null' || part1_info[9].innerText == '')? null : part1_info[9].innerText,
-                                    ecog_score: (part1_info[10].innerText == 'null' || part1_info[10].innerText == '')? null : parseFloat(part1_info[10].innerText),
-                                    ht: (part1_info[11].innerText == 'null' || part1_info[11].innerText == '')? null : parseFloat(part1_info[11].innerText),
-                                    wt: (part1_info[12].innerText == 'null' || part1_info[12].innerText == '')? null : parseFloat(part1_info[12].innerText),
-                                    bmi: (part1_info[13].innerText == 'null' || part1_info[13].innerText == '')? null : parseFloat(part1_info[13].innerText),
-                                    bp: (part1_info[14].innerText == 'null' || part1_info[14].innerText == '')? null : part1_info[14].innerText,
-                                    hr: (part1_info[15].innerText == 'null' || part1_info[15].innerText == '')? null : parseFloat(part1_info[15].innerText),
-                                    pain_score: (part1_info[16].innerText == 'null' || part1_info[16].innerText == '')? null : parseFloat(part1_info[16].innerText),
-                                    local_symptoms: (part1_info[17].innerText == 'null' || part1_info[17].innerText == '')? null : part1_info[17].innerText,
-                                    systemic_symptoms: (part1_info[18].innerText == 'null' || part1_info[18].innerText == '')? null : part1_info[18].innerText,
-                                    psa: (part1_info[19].innerText == 'null' || part1_info[19].innerText == '')? null : parseFloat(part1_info[19].innerText),
-                                    creatinine: (part1_info[20].innerText == 'null' || part1_info[20].innerText == '')? null : parseFloat(part1_info[20].innerText),
-                                    wbc: (part1_info[21].innerText == 'null' || part1_info[21].innerText == '')? null : parseFloat(part1_info[21].innerText),
-                                    rbc: (part1_info[22].innerText == 'null' || part1_info[22].innerText == '')? null : parseFloat(part1_info[22].innerText),
-                                    hemoglobin: (part1_info[23].innerText == 'null' || part1_info[23].innerText == '')? null : parseFloat(part1_info[23].innerText),
-                                    hematocrit: (part1_info[24].innerText == 'null' || part1_info[24].innerText == '')? null : parseFloat(part1_info[24].innerText),
-                                    platelet_count: (part1_info[25].innerText == 'null' || part1_info[25].innerText == '')? null : parseFloat(part1_info[25].innerText),
-                                    lactate_dehydrogenase: (part1_info[26].innerText == 'null' || part1_info[26].innerText == '')? null : parseFloat(part1_info[26].innerText),
-                                    alkaline_phosphatase: (part1_info[27].innerText == 'null' || part1_info[27].innerText == '')? null : parseFloat(part1_info[27].innerText),
-                                    sgpt_sgot_bilirubins: (part1_info[28].innerText == 'null' || part1_info[28].innerText == '')? null : parseFloat(part1_info[28].innerText),
-                                    normal_salivary_gland: (part1_info[29].innerText == 'null' || part1_info[29].innerText == '')? null : ((part1_info[29].innerText == 'true')? true:false),
-                                    right_obstruction: (part1_info[30].innerText == 'null' || part1_info[30].innerText == '')? null : ((part1_info[30].innerText == 'true')? true:false),
-                                    left_obstruction:  (part1_info[31].innerText == 'null' || part1_info[31].innerText == '')? null : ((part1_info[31].innerText == 'true')? true:false),
-                                    renal_scintigraphy: (part1_info[32].innerText == 'null' || part1_info[32].innerText == '')? null : part1_info[32].innerText,
-                                    bone_scan: (part1_info[33].innerText == 'null' || part1_info[33].innerText == '')? null : ((part1_info[33].innerText == 'true')? true:false),
-                                    metastasis_location: (part1_info[34].innerText == 'null' || part1_info[34].innerText == '')? null : part1_info[34].innerText,
-                                    lesion_ga_psma: (part1_info[35].innerText == 'null' || part1_info[35].innerText == '')? null : part1_info[35].innerText,
-                                    lesion_prostate_a: (part1_info[36].innerText == 'null' || part1_info[36].innerText == '')? null : ((part1_info[36].innerText == 'true')? true:false),
-                                    lesion_prostate_a_location: (part1_info[37].innerText == 'null' || part1_info[37].innerText == '')? null : part1_info[37].innerText,
-                                    lesion_prostate_a_suv: (part1_info[38].innerText == 'null' || part1_info[38].innerText == '')? null : parseFloat(part1_info[38].innerText),
-                                    lesion_prostate_a_measurement: (part1_info[39].innerText == 'null' || part1_info[39].innerText == '')? null : parseFloat(part1_info[39].innerText),
-                                    lesion_lymph_a: (part1_info[40].innerText == 'null' || part1_info[40].innerText == '')? null : ((part1_info[40].innerText == 'true')? true:false),
-                                    lesion_lymph_a_location: (part1_info[41].innerText == 'null' || part1_info[41].innerText == '')? null : part1_info[41].innerText,
-                                    lesion_lymph_a_suv: (part1_info[42].innerText == 'null' || part1_info[42].innerText == '')? null : parseFloat(part1_info[42].innerText),
-                                    lesion_lymph_a_measurement: (part1_info[43].innerText == 'null' || part1_info[43].innerText == '')? null : parseFloat(part1_info[43].innerText),
-                                    lesion_bone_a: (part1_info[44].innerText == 'null' || part1_info[44].innerText == '')? null : ((part1_info[44].innerText == 'true')? true:false),
-                                    lesion_bone_a_location: (part1_info[45].innerText == 'null' || part1_info[45].innerText == '')? null : part1_info[45].innerText,
-                                    lesion_bone_a_suv: (part1_info[46].innerText == 'null' || part1_info[46].innerText == '')? null : parseFloat(part1_info[46].innerText),
-                                    lesion_bone_a_measurement: (part1_info[47].innerText == 'null' || part1_info[47].innerText == '')? null : parseFloat(part1_info[47].innerText),
-                                    lesion_brain_a: (part1_info[48].innerText == 'null' || part1_info[48].innerText == '')? null : ((part1_info[48].innerText == 'true')? true:false),
-                                    lesion_brain_a_location: (part1_info[49].innerText == 'null' || part1_info[49].innerText == '')? null : part1_info[49].innerText,
-                                    lesion_brain_a_suv: (part1_info[50].innerText == 'null' || part1_info[50].innerText == '')? null : parseFloat(part1_info[50].innerText),
-                                    lesion_brain_a_measurement: (part1_info[51].innerText == 'null' || part1_info[51].innerText == '')? null : parseFloat(part1_info[51].innerText),
-                                    lesion_lungs_a: (part1_info[52].innerText == 'null' || part1_info[52].innerText == '')? null : ((part1_info[52].innerText == 'true')? true:false),
-                                    lesion_lungs_a_location: (part1_info[53].innerText == 'null' || part1_info[53].innerText == '')? null : part1_info[53].innerText,
-                                    lesion_lungs_a_suv: (part1_info[54].innerText == 'null' || part1_info[54].innerText == '')? null : parseFloat(part1_info[54].innerText),
-                                    lesion_lungs_a_measurement: (part1_info[55].innerText == 'null' || part1_info[55].innerText == '')? null : parseFloat(part1_info[55].innerText),
-                                    lesion_liver_a: (part1_info[56].innerText == 'null' || part1_info[56].innerText == '')? null : ((part1_info[56].innerText == 'true')? true:false),
-                                    lesion_liver_a_location: (part1_info[57].innerText == 'null' || part1_info[57].innerText == '')? null : part1_info[57].innerText,
-                                    lesion_liver_a_suv: (part1_info[58].innerText == 'null' || part1_info[58].innerText == '')? null : parseFloat(part1_info[58].innerText),
-                                    lesion_liver_a_measurement: (part1_info[59].innerText == 'null' || part1_info[59].innerText == '')? null : parseFloat(part1_info[59].innerText),
-                                    lesion_others_a: (part1_info[60].innerText == 'null' || part1_info[60].innerText == '')? null : ((part1_info[60].innerText == 'true')? true:false),
-                                    lesion_others_a_location: (part1_info[61].innerText == 'null' || part1_info[61].innerText == '')? null : part1_info[61].innerText,
-                                    lesion_others_a_suv: (part1_info[62].innerText == 'null' || part1_info[62].innerText == '')? null : parseFloat(part1_info[62].innerText),
-                                    lesion_others_a_measurement: (part1_info[63].innerText == 'null' || part1_info[63].innerText == '')? null : parseFloat(part1_info[63].innerText),
-                                    lesion_fdg_ctr: (part1_info[64].innerText == 'null' || part1_info[64].innerText == '')? null : ((part1_info[64].innerText == 'true')? true:false),
-                                    lesion_prostate_b: (part1_info[65].innerText == 'null' || part1_info[65].innerText == '')? null : ((part1_info[65].innerText == 'true')? true:false),
-                                    lesion_prostate_b_location: (part1_info[66].innerText == 'null' || part1_info[66].innerText == '')? null : part1_info[66].innerText,
-                                    lesion_prostate_b_suv: (part1_info[67].innerText == 'null' || part1_info[67].innerText == '')? null : parseFloat(part1_info[67].innerText),
-                                    lesion_prostate_b_measurement: (part1_info[68].innerText == 'null' || part1_info[68].innerText == '')? null : parseFloat(part1_info[68].innerText),
-                                    lesion_lymph_b: (part1_info[69].innerText == 'null' || part1_info[69].innerText == '')? null : ((part1_info[69].innerText == 'true')? true:false),
-                                    lesion_lymph_b_location: (part1_info[70].innerText == 'null' || part1_info[70].innerText == '')? null : part1_info[70].innerText,
-                                    lesion_lymph_b_suv: (part1_info[71].innerText == 'null' || part1_info[71].innerText == '')? null : parseFloat(part1_info[71].innerText),
-                                    lesion_lymph_b_measurement: (part1_info[72].innerText == 'null' || part1_info[72].innerText == '')? null : parseFloat(part1_info[72].innerText),
-                                    lesion_bone_b: (part1_info[73].innerText == 'null' || part1_info[73].innerText == '')? null : ((part1_info[73].innerText == 'true')? true:false),
-                                    lesion_bone_b_location: (part1_info[74].innerText == 'null' || part1_info[74].innerText == '')? null : part1_info[74].innerText,
-                                    lesion_bone_b_suv: (part1_info[75].innerText == 'null' || part1_info[75].innerText == '')? null : parseFloat(part1_info[75].innerText),
-                                    lesion_bone_b_measurement: (part1_info[76].innerText == 'null' || part1_info[76].innerText == '')? null : parseFloat(part1_info[76].innerText),
-                                    lesion_brain_b: (part1_info[77].innerText == 'null' || part1_info[77].innerText == '')? null : ((part1_info[77].innerText == 'true')? true:false),
-                                    lesion_brain_b_location: (part1_info[78].innerText == 'null' || part1_info[78].innerText == '')? null : part1_info[78].innerText,
-                                    lesion_brain_b_suv: (part1_info[79].innerText == 'null' || part1_info[79].innerText == '')? null : parseFloat(part1_info[79].innerText),
-                                    lesion_brain_b_measurement: (part1_info[80].innerText == 'null' || part1_info[80].innerText == '')? null : parseFloat(part1_info[80].innerText),
-                                    lesion_lungs_b: (part1_info[81].innerText == 'null' || part1_info[81].innerText == '')? null : ((part1_info[81].innerText == 'true')? true:false),
-                                    lesion_lungs_b_location: (part1_info[82].innerText == 'null' || part1_info[82].innerText == '')? null : part1_info[82].innerText,
-                                    lesion_lungs_b_suv: (part1_info[83].innerText == 'null' || part1_info[83].innerText == '')? null : parseFloat(part1_info[83].innerText),
-                                    lesion_lungs_b_measurement: (part1_info[84].innerText == 'null' || part1_info[84].innerText == '')? null : parseFloat(part1_info[84].innerText),
-                                    lesion_liver_b: (part1_info[85].innerText == 'null' || part1_info[85].innerText == '')? null : ((part1_info[85].innerText == 'true')? true:false),
-                                    lesion_liver_b_location: (part1_info[86].innerText == 'null' || part1_info[86].innerText == '')? null : part1_info[86].innerText,
-                                    lesion_liver_b_suv: (part1_info[87].innerText == 'null' || part1_info[87].innerText == '')? null : parseFloat(part1_info[87].innerText),
-                                    lesion_liver_b_measurement: (part1_info[88].innerText == 'null' || part1_info[88].innerText == '')? null : parseFloat(part1_info[88].innerText),
-                                    lesion_others_b: (part1_info[89].innerText == 'null' || part1_info[89].innerText == '')? null : ((part1_info[89].innerText == 'true')? true:false),
-                                    lesion_others_b_location: (part1_info[90].innerText == 'null' || part1_info[90].innerText == '')? null : part1_info[90].innerText,
-                                    lesion_others_b_suv: (part1_info[91].innerText == 'null' || part1_info[91].innerText == '')? null : parseFloat(part1_info[91].innerText),
-                                    lesion_others_b_measurement: (part1_info[92].innerText == 'null' || part1_info[92].innerText == '')? null : parseFloat(part1_info[92].innerText),
-                                    assessment: (part1_info[93].innerText == 'null' || part1_info[93].innerText == '')? null : ((part1_info[93].innerText == 'Low Risk')? 'low' : ((part1_info[93].innerText == 'High Risk')? 'high': ((part1_info[93].innerText == 'Intermediate Risk')? 'intermediate': part1_info[93].innerText))),
-                                    plan: (part1_info[94].innerText == 'null' || part1_info[94].innerText == '')? null : part1_info[94].innerText
-                                })
-                            })
-                            .then((res) =>res.json())
-                            .then((data) => {
-                                if(data[0].event = 'success') {
-                                    alert(`Patient ${sessionStorage.getItem('first_name')} ${sessionStorage.getItem('last_name')} updated successfully`)
-                                    location.reload();
-                                }
-                                else alert(`Error occured while updating patient ${sessionStorage.getItem('first_name')} ${sessionStorage.getItem('last_name')}`)
-                            })
-                        })
-                    })
                 }
             })
-            //display other parts
-            //iterate through
             .then(async () => {
                 await fetch(`/request/therapy?patient_code=${sessionStorage.getItem('patient_code')}`, {
                     method: 'GET',
                     headers: new Headers({ 'Content-Type': 'application/json' })
                 })
-                .then(res => res.json())
-                .then(data => {
-                    sessionStorage.setItem('number_of_therapy', data.length)
-                    sessionStorage.setItem('therapy_id', data[data.length - 1].therapy_id)
-                    //display data per index
-                })
+                    .then(res => res.json())
+                    .then(data => {
+                        sessionStorage.setItem('number_of_therapy', data.length)
+                        if (data.length > 0) {
+                            sessionStorage.setItem('therapy_id', data[data.length - 1].therapy_id)
+                            const patient_info_body = document.querySelector('.patient-info-body')
+                            patient_info_body.innerHTML += `
+                        <div class="card" style="margin-bottom:5px">
+                            <h5 class="card-header">Therapy Information</h5>
+                            <div class="card-body therapy-body"></div>
+                        </div>
+                        `
+                            for (let i = 0; i < data.length; i++) {
+                                const therapy_body = document.querySelector('.therapy-body')
+                                therapy_body.innerHTML += `
+                            <div class="card" style="margin-bottom:5px">
+                                <h5 class="card-header">Theraphy #${i + 1}</h5>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                        <table class="table text-center">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Attribute</th>
+                                                <th scope="col">Value</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Date of PSMA-directed Radioligand Therapy</td>
+                                                <td class="part2-info-${i + 1}" contenteditable=false>${data[i].date_radioligand}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Date of Therapy</td>
+                                                <td class="part2-info-${i + 1}" contenteditable=false>${data[i].date_therapy}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Pre-medications</td>
+                                                <td class="part2-info-${i + 1}" contenteditable=false>${data[i].pre_meds}</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                        </div>
+                                        <div class="col">
+                                        <table class="table text-center">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Attribute</th>
+                                                <th scope="col">Value</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Medications</td>
+                                                <td class="part2-info-${i + 1}" contenteditable=false>${data[i].meds}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Radiopharm</td>
+                                                <td class="part2-info-${i + 1}" contenteditable=false>${data[i].radiopharm}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Activity</td>
+                                                <td class="part2-info-${i + 1}" contenteditable=false>${data[i].activity}</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="card">
+                                                <h5 class="card-header">Vital Signs</h5>
+                                                <div class="card-body">
+                                                <table class="table text-center">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Attribute</th>
+                                                        <th scope="col">Value</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Blood Pressure</td>
+                                                        <td class="part2-info-${i + 1}" contenteditable=false>${data[i].p2_bp}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Heart Rate</td>
+                                                        <td class="part2-info-${i + 1}" contenteditable=false>${data[i].p2_hr}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Respiratory Rate</td>
+                                                        <td class="part2-info-${i + 1}" contenteditable=false>${data[i].p2_rr}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oxygen Saturation</td>
+                                                        <td class="part2-info-${i + 1}" contenteditable=false>${data[i].oxygen_sat}</td>
+                                                    </tr>
+                                                </tbody>
+                                                </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                        <div class="card">
+                                            <h5 class="card-header">Side Effects</h5>
+                                            <div class="card-body">
+                                            <table class="table text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Attribute</th>
+                                                    <th scope="col">Value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Fatigue</td>
+                                                    <td class="part2-info-${i + 1}" contenteditable=false>${data[i].have_fatigue}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Nausea/Vomitting</td>
+                                                    <td class="part2-info-${i + 1}" contenteditable=false>${data[i].have_nausea_vomitting}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dry Lip/Mouth</td>
+                                                    <td class="part2-info-${i + 1}" contenteditable=false>${data[i].have_dry_lipmouth}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Headache</td>
+                                                    <td class="part2-info-${i + 1}" contenteditable=false>${data[i].have_headache}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Bone Pain</td>
+                                                    <td class="part2-info-${i + 1}" contenteditable=false>${data[i].have_bone_pain}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Others</td>
+                                                    <td class="part2-info-${i + 1}" contenteditable=false>${data[i].other_side_effect}</td>
+                                                </tr>
+                                            </tbody>
+                                            </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card text-center" style="margin: 10px">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col edit-btn-cont-p2-${i + 1}" style="display:block">
+                                        <a class="btn btn-outline-secondary mb-3 edit-p2" id="edit-part2-${i + 1}" >Edit Therapy #${i + 1}</a>
+                                    </div>
+                                    <div class="col cancel-btn-cont-p2-${i + 1}" style="display:none">
+                                        <a class="btn btn-outline-secondary mb-3 cancel-edit-p2-${i + 1}" id="cancel-edit-part2-${i + 1}">Cancel Edit</a>
+                                    </div>
+                                    <div class="col save-btn-cont-p2-${i + 1}" style="display:none">
+                                        <a class="btn btn-outline-secondary mb-3 save-edit-p2-${i + 1}" id="save-edit-part2-${i + 1}">Save</a>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            `
+                            }
+                        }
+                    })
             })
-            //check if there are lesions
             .then(async () => {
                 await fetch(`/request/post-therapy?patient_code=${sessionStorage.getItem('patient_code')}`, {
                     method: 'GET',
                     headers: new Headers({ 'Content-Type': 'application/json' })
                 })
-                .then(res => res.json())
-                .then(data => {
-                    sessionStorage.setItem('number_of_post_therapy', data.length)
-                    const part3_lesion = data[data.length - 1].lesion_prostate || data[data.length - 1].lesion_lymph ||
-                    data[data.length - 1].lesion_bones || data[data.length - 1].lesion_lungs || 
-                    data[data.length - 1].lesion_liver
-                    sessionStorage.setItem('part3_lesion', part3_lesion)
-                    //display data per index
-                })
+                    .then(res => res.json())
+                    .then(data => {
+                        sessionStorage.setItem('number_of_post_therapy', data.length)
+                        sessionStorage.setItem('done_post_therapy', false)
+                        if (data.length > 0) {
+                            const part3_lesion = data[data.length - 1].lesion_prostate || data[data.length - 1].lesion_lymph ||
+                                data[data.length - 1].lesion_bones || data[data.length - 1].lesion_lungs ||
+                                data[data.length - 1].lesion_liver
+                            sessionStorage.setItem('part3_lesion', part3_lesion)
+                            sessionStorage.setItem('done_post_therapy', true)
+                            sessionStorage.setItem('latest_posttherapy', data[data.length - 1].created_at)
+                            const patient_info_body = document.querySelector('.patient-info-body')
+                            patient_info_body.innerHTML += `
+                        <div class="card" style="margin-bottom:5px">
+                            <h5 class="card-header">Post-Therapy Information</h5>
+                            <div class="card-body post-therapy-body"></div>
+                        </div>
+                        `
+                        for(let i = 0; i < data.length; i++) {
+                            
+                        }
+                        }
+                        //display data per index
+                    })
             })
             .then(async () => {
                 await fetch(`/request/followup?patient_code=${sessionStorage.getItem('patient_code')}`, {
                     method: 'GET',
                     headers: new Headers({ 'Content-Type': 'application/json' })
                 })
-                .then(res => res.json())
-                .then(data => {
-                    
-                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.length > 0) {
+                            const part4_lesion = (data[data.length - 1].lesion_prostate_a != null || !data[data.length - 1].lesion_prostate_a) ||
+                                (data[data.length - 1].lesion_lymph_a != null || !data[data.length - 1].lesion_lymph_a) || (data[data.length - 1].lesion_bone_a != null || !data[data.length - 1].lesion_bone_a) ||
+                                (data[data.length - 1].lesion_brain_a != null || !data[data.length - 1].lesion_brain_a) || (data[data.length - 1].lesion_lungs_a != null || !data[data.length - 1].lesion_lungs_a) ||
+                                (data[data.length - 1].lesion_liver_a != null || !data[data.length - 1].lesion_liver_a) || (data[data.length - 1].lesion_others_a != null || !data[data.length - 1].lesion_others_a) ||
+                                (data[data.length - 1].lesion_prostate_b != null || !data[data.length - 1].lesion_prostate_b) ||
+                                (data[data.length - 1].lesion_lymph_b != null || !data[data.length - 1].lesion_lymph_b) || (data[data.length - 1].lesion_bone_b != null || !data[data.length - 1].lesion_bone_b) ||
+                                (data[data.length - 1].lesion_brain_b != null || !data[data.length - 1].lesion_brain_b) || (data[data.length - 1].lesion_lungs_b != null || !data[data.length - 1].lesion_lungs_b) ||
+                                (data[data.length - 1].lesion_liver_b != null || !data[data.length - 1].lesion_liver_b) || (data[data.length - 1].lesion_others_b != null || !data[data.length - 1].lesion_others_b)
+                            sessionStorage.setItem('part4_lesion', part4_lesion)
+                            sessionStorage.setItem('latest_followup', data[data.length - 1].created_at)
+                            const patient_info_body = document.querySelector('.patient-info-body')
+                            patient_info_body.innerHTML += `
+                        <div class="card" style="margin-bottom:5px">
+                            
+                        </div>
+                        `
+                        }
+
+                    })
             })
             .then(() => {
                 const next_text = document.querySelector('.next-text')
@@ -890,37 +949,211 @@ window.onload = async () => {
                 const n_of_pt = sessionStorage.getItem('number_of_post_therapy')
                 const part1_lesion = sessionStorage.getItem('part1_lesion')
                 const part3_lesion = sessionStorage.getItem('part3_lesion')
+                const part4_lesion = sessionStorage.getItem('part4_lesion')
+                const done_post_therapy = sessionStorage.getItem('done_post_therapy')
+                //check for presence of each part
                 if (n_of_t > n_of_pt) {
                     next_text.innerHTML += ' Fill Post-Therapy Form'
-                    next_btn.addEventListener('click', () =>{
+                    next_btn.addEventListener('click', () => {
                         location.href = '/post-therapy'
                     })
-                    
+
                 }
-                else if (part1_lesion || part3_lesion) {
-                    //or part3 or part4
-                    
-                    if (part3_lesion == true) {
-                        next_text.innerHTML += ' Fill Therapy Form'
-                        next_btn.addEventListener('click', () =>{
+                else if (part1_lesion && done_post_therapy == 'false') {
+                    next_text.innerHTML += ' Fill Therapy Form'
+                    next_btn.addEventListener('click', () => {
                         location.href = '/therapy'
-                        })
+                    })
+                }
+                else if (part3_lesion == 'true' || part4_lesion == 'true') {
+                    const latest_followup = new Date(sessionStorage.getItem('latest_followup'))
+                    const latest_posttherapy = new Date(sessionStorage.getItem('latest_posttherapy'))
+
+                    if (latest_followup < latest_posttherapy) {
+                        if (part3_lesion == 'true') {
+                            next_text.innerHTML += ' Fill Therapy Form'
+                            next_btn.addEventListener('click', () => {
+                                location.href = '/therapy'
+                            })
+                        }
+                        else {
+                            next_text.innerHTML += ' Fill Follow-up Form'
+                            next_btn.addEventListener('click', () => {
+                                location.href = '/follow-up'
+                            })
+                        }
                     }
-                    else {
-                        next_text.innerHTML += ' Fill Follow-up Form'
-                        next_btn.addEventListener('click', () =>{
-                        location.href = '/follow-up'
-                        })
+                    else if (latest_followup > latest_posttherapy) {
+
+                        if (part4_lesion == 'true') {
+                            next_text.innerHTML += ' Fill Therapy Form'
+                            next_btn.addEventListener('click', () => {
+                                location.href = '/therapy'
+                            })
+                        }
+                        else {
+                            next_text.innerHTML += ' Fill Follow-up Form'
+                            next_btn.addEventListener('click', () => {
+                                location.href = '/follow-up'
+                            })
+                        }
                     }
+
                 }
                 else {
                     next_text.innerHTML += ' Fill Follow-up Form'
-                    next_btn.addEventListener('click', () =>{
-                    location.href = '/follow-up'
-                })
-                    
+                    next_btn.addEventListener('click', () => {
+                        location.href = '/follow-up'
+                    })
+
                 }
             })
+        const edit_btn_cont = document.querySelector('.edit-btn-cont');
+        const edit_part1 = document.querySelector('#edit-part1');
+        const part1_info = document.querySelectorAll('.part1-info');
+        edit_part1.addEventListener('click', () => {
+            const cancel_btn_cont = document.querySelector('.cancel-btn-cont');
+            const save_btn_cont = document.querySelector('.save-btn-cont');
+            const cancel_edit_part1 = document.querySelector('#cancel-edit-part1');
+            const save_edit_part1 = document.querySelector('#save-edit-part1');
+            edit_btn_cont.style.display = 'none';
+            cancel_btn_cont.style.display = 'block';
+            save_btn_cont.style.display = 'block';
+            for (let i = 0; i < part1_info.length; i++) {
+                part1_info[i].contentEditable = true;
+            }
+            cancel_edit_part1.addEventListener('click', () => {
+                location.reload();
+            })
+            save_edit_part1.addEventListener('click', () => {
+                fetch('/request/update/part1', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        patient_code: sessionStorage.getItem('patient_code'),
+                        first_name: (part1_info[0].innerText == 'null' || part1_info[0].innerText == '') ? null : part1_info[0].innerText,
+                        last_name: (part1_info[1].innerText == 'null' || part1_info[1].innerText == '') ? null : part1_info[1].innerText,
+                        age: (part1_info[2].innerText == 'null' || part1_info[2].innerText == '') ? null : parseInt(part1_info[2].innerText),
+                        city_of_residence: (part1_info[3].innerText == 'null' || part1_info[3].innerText == '') ? null : part1_info[3].innerText,
+                        date_of_diagnosis: (part1_info[4].innerText == 'null' || part1_info[4].innerText == '') ? null : part1_info[4].innerText,
+                        date_of_surgery: (part1_info[5].innerText == 'null' || part1_info[5].innerText == '') ? null : part1_info[5].innerText,
+                        histopath_result: (part1_info[6].innerText == 'null' || part1_info[6].innerText == '') ? null : part1_info[6].innerText,
+                        gleason_score: (part1_info[7].innerText == 'null' || part1_info[7].innerText == '') ? null : parseInt(part1_info[7].innerText),
+                        date_of_treatment: (part1_info[8].innerText == 'null' || part1_info[8].innerText == '') ? null : part1_info[8].innerText,
+                        treatment_type: (part1_info[9].innerText == 'null' || part1_info[9].innerText == '') ? null : part1_info[9].innerText,
+                        ecog_score: (part1_info[10].innerText == 'null' || part1_info[10].innerText == '') ? null : parseFloat(part1_info[10].innerText),
+                        ht: (part1_info[11].innerText == 'null' || part1_info[11].innerText == '') ? null : parseFloat(part1_info[11].innerText),
+                        wt: (part1_info[12].innerText == 'null' || part1_info[12].innerText == '') ? null : parseFloat(part1_info[12].innerText),
+                        bmi: (part1_info[13].innerText == 'null' || part1_info[13].innerText == '') ? null : parseFloat(part1_info[13].innerText),
+                        bp: (part1_info[14].innerText == 'null' || part1_info[14].innerText == '') ? null : part1_info[14].innerText,
+                        hr: (part1_info[15].innerText == 'null' || part1_info[15].innerText == '') ? null : parseFloat(part1_info[15].innerText),
+                        pain_score: (part1_info[16].innerText == 'null' || part1_info[16].innerText == '') ? null : parseFloat(part1_info[16].innerText),
+                        local_symptoms: (part1_info[17].innerText == 'null' || part1_info[17].innerText == '') ? null : part1_info[17].innerText,
+                        systemic_symptoms: (part1_info[18].innerText == 'null' || part1_info[18].innerText == '') ? null : part1_info[18].innerText,
+                        psa: (part1_info[19].innerText == 'null' || part1_info[19].innerText == '') ? null : parseFloat(part1_info[19].innerText),
+                        creatinine: (part1_info[20].innerText == 'null' || part1_info[20].innerText == '') ? null : parseFloat(part1_info[20].innerText),
+                        wbc: (part1_info[21].innerText == 'null' || part1_info[21].innerText == '') ? null : parseFloat(part1_info[21].innerText),
+                        rbc: (part1_info[22].innerText == 'null' || part1_info[22].innerText == '') ? null : parseFloat(part1_info[22].innerText),
+                        hemoglobin: (part1_info[23].innerText == 'null' || part1_info[23].innerText == '') ? null : parseFloat(part1_info[23].innerText),
+                        hematocrit: (part1_info[24].innerText == 'null' || part1_info[24].innerText == '') ? null : parseFloat(part1_info[24].innerText),
+                        platelet_count: (part1_info[25].innerText == 'null' || part1_info[25].innerText == '') ? null : parseFloat(part1_info[25].innerText),
+                        lactate_dehydrogenase: (part1_info[26].innerText == 'null' || part1_info[26].innerText == '') ? null : parseFloat(part1_info[26].innerText),
+                        alkaline_phosphatase: (part1_info[27].innerText == 'null' || part1_info[27].innerText == '') ? null : parseFloat(part1_info[27].innerText),
+                        sgpt_sgot_bilirubins: (part1_info[28].innerText == 'null' || part1_info[28].innerText == '') ? null : parseFloat(part1_info[28].innerText),
+                        normal_salivary_gland: (part1_info[29].innerText == 'null' || part1_info[29].innerText == '') ? null : ((part1_info[29].innerText == 'true') ? true : false),
+                        right_obstruction: (part1_info[30].innerText == 'null' || part1_info[30].innerText == '') ? null : ((part1_info[30].innerText == 'true') ? true : false),
+                        left_obstruction: (part1_info[31].innerText == 'null' || part1_info[31].innerText == '') ? null : ((part1_info[31].innerText == 'true') ? true : false),
+                        renal_scintigraphy: (part1_info[32].innerText == 'null' || part1_info[32].innerText == '') ? null : part1_info[32].innerText,
+                        bone_scan: (part1_info[33].innerText == 'null' || part1_info[33].innerText == '') ? null : ((part1_info[33].innerText == 'true') ? true : false),
+                        metastasis_location: (part1_info[34].innerText == 'null' || part1_info[34].innerText == '') ? null : part1_info[34].innerText,
+                        lesion_ga_psma: (part1_info[35].innerText == 'null' || part1_info[35].innerText == '') ? null : part1_info[35].innerText,
+                        lesion_prostate_a: (part1_info[36].innerText == 'null' || part1_info[36].innerText == '') ? null : ((part1_info[36].innerText == 'true') ? true : false),
+                        lesion_prostate_a_location: (part1_info[37].innerText == 'null' || part1_info[37].innerText == '') ? null : part1_info[37].innerText,
+                        lesion_prostate_a_suv: (part1_info[38].innerText == 'null' || part1_info[38].innerText == '') ? null : parseFloat(part1_info[38].innerText),
+                        lesion_prostate_a_measurement: (part1_info[39].innerText == 'null' || part1_info[39].innerText == '') ? null : parseFloat(part1_info[39].innerText),
+                        lesion_lymph_a: (part1_info[40].innerText == 'null' || part1_info[40].innerText == '') ? null : ((part1_info[40].innerText == 'true') ? true : false),
+                        lesion_lymph_a_location: (part1_info[41].innerText == 'null' || part1_info[41].innerText == '') ? null : part1_info[41].innerText,
+                        lesion_lymph_a_suv: (part1_info[42].innerText == 'null' || part1_info[42].innerText == '') ? null : parseFloat(part1_info[42].innerText),
+                        lesion_lymph_a_measurement: (part1_info[43].innerText == 'null' || part1_info[43].innerText == '') ? null : parseFloat(part1_info[43].innerText),
+                        lesion_bone_a: (part1_info[44].innerText == 'null' || part1_info[44].innerText == '') ? null : ((part1_info[44].innerText == 'true') ? true : false),
+                        lesion_bone_a_location: (part1_info[45].innerText == 'null' || part1_info[45].innerText == '') ? null : part1_info[45].innerText,
+                        lesion_bone_a_suv: (part1_info[46].innerText == 'null' || part1_info[46].innerText == '') ? null : parseFloat(part1_info[46].innerText),
+                        lesion_bone_a_measurement: (part1_info[47].innerText == 'null' || part1_info[47].innerText == '') ? null : parseFloat(part1_info[47].innerText),
+                        lesion_brain_a: (part1_info[48].innerText == 'null' || part1_info[48].innerText == '') ? null : ((part1_info[48].innerText == 'true') ? true : false),
+                        lesion_brain_a_location: (part1_info[49].innerText == 'null' || part1_info[49].innerText == '') ? null : part1_info[49].innerText,
+                        lesion_brain_a_suv: (part1_info[50].innerText == 'null' || part1_info[50].innerText == '') ? null : parseFloat(part1_info[50].innerText),
+                        lesion_brain_a_measurement: (part1_info[51].innerText == 'null' || part1_info[51].innerText == '') ? null : parseFloat(part1_info[51].innerText),
+                        lesion_lungs_a: (part1_info[52].innerText == 'null' || part1_info[52].innerText == '') ? null : ((part1_info[52].innerText == 'true') ? true : false),
+                        lesion_lungs_a_location: (part1_info[53].innerText == 'null' || part1_info[53].innerText == '') ? null : part1_info[53].innerText,
+                        lesion_lungs_a_suv: (part1_info[54].innerText == 'null' || part1_info[54].innerText == '') ? null : parseFloat(part1_info[54].innerText),
+                        lesion_lungs_a_measurement: (part1_info[55].innerText == 'null' || part1_info[55].innerText == '') ? null : parseFloat(part1_info[55].innerText),
+                        lesion_liver_a: (part1_info[56].innerText == 'null' || part1_info[56].innerText == '') ? null : ((part1_info[56].innerText == 'true') ? true : false),
+                        lesion_liver_a_location: (part1_info[57].innerText == 'null' || part1_info[57].innerText == '') ? null : part1_info[57].innerText,
+                        lesion_liver_a_suv: (part1_info[58].innerText == 'null' || part1_info[58].innerText == '') ? null : parseFloat(part1_info[58].innerText),
+                        lesion_liver_a_measurement: (part1_info[59].innerText == 'null' || part1_info[59].innerText == '') ? null : parseFloat(part1_info[59].innerText),
+                        lesion_others_a: (part1_info[60].innerText == 'null' || part1_info[60].innerText == '') ? null : ((part1_info[60].innerText == 'true') ? true : false),
+                        lesion_others_a_location: (part1_info[61].innerText == 'null' || part1_info[61].innerText == '') ? null : part1_info[61].innerText,
+                        lesion_others_a_suv: (part1_info[62].innerText == 'null' || part1_info[62].innerText == '') ? null : parseFloat(part1_info[62].innerText),
+                        lesion_others_a_measurement: (part1_info[63].innerText == 'null' || part1_info[63].innerText == '') ? null : parseFloat(part1_info[63].innerText),
+                        lesion_fdg_ctr: (part1_info[64].innerText == 'null' || part1_info[64].innerText == '') ? null : ((part1_info[64].innerText == 'true') ? true : false),
+                        lesion_prostate_b: (part1_info[65].innerText == 'null' || part1_info[65].innerText == '') ? null : ((part1_info[65].innerText == 'true') ? true : false),
+                        lesion_prostate_b_location: (part1_info[66].innerText == 'null' || part1_info[66].innerText == '') ? null : part1_info[66].innerText,
+                        lesion_prostate_b_suv: (part1_info[67].innerText == 'null' || part1_info[67].innerText == '') ? null : parseFloat(part1_info[67].innerText),
+                        lesion_prostate_b_measurement: (part1_info[68].innerText == 'null' || part1_info[68].innerText == '') ? null : parseFloat(part1_info[68].innerText),
+                        lesion_lymph_b: (part1_info[69].innerText == 'null' || part1_info[69].innerText == '') ? null : ((part1_info[69].innerText == 'true') ? true : false),
+                        lesion_lymph_b_location: (part1_info[70].innerText == 'null' || part1_info[70].innerText == '') ? null : part1_info[70].innerText,
+                        lesion_lymph_b_suv: (part1_info[71].innerText == 'null' || part1_info[71].innerText == '') ? null : parseFloat(part1_info[71].innerText),
+                        lesion_lymph_b_measurement: (part1_info[72].innerText == 'null' || part1_info[72].innerText == '') ? null : parseFloat(part1_info[72].innerText),
+                        lesion_bone_b: (part1_info[73].innerText == 'null' || part1_info[73].innerText == '') ? null : ((part1_info[73].innerText == 'true') ? true : false),
+                        lesion_bone_b_location: (part1_info[74].innerText == 'null' || part1_info[74].innerText == '') ? null : part1_info[74].innerText,
+                        lesion_bone_b_suv: (part1_info[75].innerText == 'null' || part1_info[75].innerText == '') ? null : parseFloat(part1_info[75].innerText),
+                        lesion_bone_b_measurement: (part1_info[76].innerText == 'null' || part1_info[76].innerText == '') ? null : parseFloat(part1_info[76].innerText),
+                        lesion_brain_b: (part1_info[77].innerText == 'null' || part1_info[77].innerText == '') ? null : ((part1_info[77].innerText == 'true') ? true : false),
+                        lesion_brain_b_location: (part1_info[78].innerText == 'null' || part1_info[78].innerText == '') ? null : part1_info[78].innerText,
+                        lesion_brain_b_suv: (part1_info[79].innerText == 'null' || part1_info[79].innerText == '') ? null : parseFloat(part1_info[79].innerText),
+                        lesion_brain_b_measurement: (part1_info[80].innerText == 'null' || part1_info[80].innerText == '') ? null : parseFloat(part1_info[80].innerText),
+                        lesion_lungs_b: (part1_info[81].innerText == 'null' || part1_info[81].innerText == '') ? null : ((part1_info[81].innerText == 'true') ? true : false),
+                        lesion_lungs_b_location: (part1_info[82].innerText == 'null' || part1_info[82].innerText == '') ? null : part1_info[82].innerText,
+                        lesion_lungs_b_suv: (part1_info[83].innerText == 'null' || part1_info[83].innerText == '') ? null : parseFloat(part1_info[83].innerText),
+                        lesion_lungs_b_measurement: (part1_info[84].innerText == 'null' || part1_info[84].innerText == '') ? null : parseFloat(part1_info[84].innerText),
+                        lesion_liver_b: (part1_info[85].innerText == 'null' || part1_info[85].innerText == '') ? null : ((part1_info[85].innerText == 'true') ? true : false),
+                        lesion_liver_b_location: (part1_info[86].innerText == 'null' || part1_info[86].innerText == '') ? null : part1_info[86].innerText,
+                        lesion_liver_b_suv: (part1_info[87].innerText == 'null' || part1_info[87].innerText == '') ? null : parseFloat(part1_info[87].innerText),
+                        lesion_liver_b_measurement: (part1_info[88].innerText == 'null' || part1_info[88].innerText == '') ? null : parseFloat(part1_info[88].innerText),
+                        lesion_others_b: (part1_info[89].innerText == 'null' || part1_info[89].innerText == '') ? null : ((part1_info[89].innerText == 'true') ? true : false),
+                        lesion_others_b_location: (part1_info[90].innerText == 'null' || part1_info[90].innerText == '') ? null : part1_info[90].innerText,
+                        lesion_others_b_suv: (part1_info[91].innerText == 'null' || part1_info[91].innerText == '') ? null : parseFloat(part1_info[91].innerText),
+                        lesion_others_b_measurement: (part1_info[92].innerText == 'null' || part1_info[92].innerText == '') ? null : parseFloat(part1_info[92].innerText),
+                        assessment: (part1_info[93].innerText == 'null' || part1_info[93].innerText == '') ? null : ((part1_info[93].innerText == 'Low Risk') ? 'low' : ((part1_info[93].innerText == 'High Risk') ? 'high' : ((part1_info[93].innerText == 'Intermediate Risk') ? 'intermediate' : part1_info[93].innerText))),
+                        plan: (part1_info[94].innerText == 'null' || part1_info[94].innerText == '') ? null : part1_info[94].innerText
+                    })
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        if (data[0].event = 'success') {
+                            alert(`Patient ${sessionStorage.getItem('first_name')} ${sessionStorage.getItem('last_name')} updated successfully`)
+                            location.reload();
+                        }
+                        else alert(`Error occured while updating patient ${sessionStorage.getItem('first_name')} ${sessionStorage.getItem('last_name')}`)
+                    })
+            })
+        })
+        for (let i = 0; i < sessionStorage.getItem('number_of_therapy'); i++) {
+            const edit_btn_cont_p2 = document.querySelector(`.edit-btn-cont-p2-${i + 1}`);
+            const part2_info = document.querySelectorAll(`.part2-info-${i + 1}`);
+            const edit_part2 = document.querySelector(`#edit-part2-${i + 1}`)
+            edit_part2.addEventListener('click', () => {
+                const cancel_btn_cont_p2 = document.querySelector(`.cancel-btn-cont-p2-${i+1}`);
+                const save_btn_cont_p2 = document.querySelector(`.save-btn-cont-p2-${i+1}`);
+                const cancel_edit_part2 = document.querySelector(`#cancel-edit-part2-${i+1}`);
+                const save_edit_part2 = document.querySelector(`#save-edit-part2-${i+1}`);
+                edit_btn_cont_p2.style.display = 'none';
+                cancel_btn_cont_p2.style.display = 'block';
+                save_btn_cont_p2.style.display = 'block';
+                
+            })
+        }
+
     }
     else {
         location.href = '/search'

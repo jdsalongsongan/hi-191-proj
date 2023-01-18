@@ -209,4 +209,39 @@ router.put('/update/part1', (req, res) => {
 
 })
 
+router.put('/update/part2', (req, res) => {
+    const { therapy_id, patient_id, date_radioligand, meds, pre_meds, p2_bp, p2_hr,
+        p2_rr, oxygen_sat, date_therapy, radiopharm, activity,
+        have_fatigue, have_nausea_vomitting, have_dry_lipmouth,
+        have_headache, have_bone_pain, other_side_effect } = req.body;
+    db('part2')
+    .where({therapy_id: therapy_id})
+    .update({
+        patient_id: patient_id,
+        date_radioligand: date_radioligand,
+        meds: meds,
+        pre_meds: pre_meds,
+        p2_bp: p2_bp,
+        p2_hr: p2_hr,
+        p2_rr: p2_rr,
+        oxygen_sat: oxygen_sat,
+        date_therapy: date_therapy,
+        radiopharm: radiopharm,
+        activity: activity,
+        have_fatigue: have_fatigue,
+        have_nausea_vomitting: have_nausea_vomitting,
+        have_dry_lipmouth: have_dry_lipmouth,
+        have_headache: have_headache,
+        have_bone_pain: have_bone_pain,
+        other_side_effect: other_side_effect
+    })
+    .then(() => {
+        res.json([{event :'success'}])
+       
+    })
+    .catch((err) => {
+        res.json([{event: 'error'}])
+    })
+})
+
 module.exports = router
