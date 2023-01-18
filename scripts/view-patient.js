@@ -908,7 +908,80 @@ window.onload = async () => {
                         </div>
                         `
                         for(let i = 0; i < data.length; i++) {
-                            
+                            const post_therapy_body = document.querySelector('.post-therapy-body')
+                            post_therapy_body.innerHTML += `
+                            <div class="card"  style="margin-bottom:5px">
+                                <h5 class="card-header">Post-Therapy #${i+1}</h5>
+                                <div class="card-body">
+                                <div class="col">
+                                <table class="table text-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Attribute</th>
+                                        <th scope="col">Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Date of Post-Therapy</td>
+                                        <td class="part3-info-${i + 1}" contenteditable=false>${data[i].date_post_therapy}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Post-Therapy Scan Hour</td>
+                                        <td class="part3-info-${i + 1}" contenteditable=false>${data[i].pts_hour}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>With SPECT/CT</td>
+                                        <td class="part3-info-${i + 1}" contenteditable=false>${data[i].with_spect}</td>
+                                    </tr>
+                                </tbody>
+                                </table>
+                                </div>
+                                </div>
+                                <div class="col">
+                                        <div class="card">
+                                            <h5 class="card-header">Side Effects</h5>
+                                            <div class="card-body">
+                                            <table class="table text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Attribute</th>
+                                                    <th scope="col">Value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Fatigue</td>
+                                                    <td class="part2-info-${i + 1}" contenteditable=false>${data[i].have_fatigue}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Nausea/Vomitting</td>
+                                                    <td class="part2-info-${i + 1}" contenteditable=false>${data[i].have_nausea_vomitting}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dry Lip/Mouth</td>
+                                                    <td class="part2-info-${i + 1}" contenteditable=false>${data[i].have_dry_lipmouth}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Headache</td>
+                                                    <td class="part2-info-${i + 1}" contenteditable=false>${data[i].have_headache}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Bone Pain</td>
+                                                    <td class="part2-info-${i + 1}" contenteditable=false>${data[i].have_bone_pain}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Others</td>
+                                                    <td class="part2-info-${i + 1}" contenteditable=false>${data[i].other_side_effect}</td>
+                                                </tr>
+                                            </tbody>
+                                            </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                            </div>
+                            `
                         }
                         }
                         //display data per index
