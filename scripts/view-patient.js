@@ -1653,14 +1653,14 @@ window.onload = async () => {
                 const part4_lesion = sessionStorage.getItem('part4_lesion')
                 const done_post_therapy = sessionStorage.getItem('done_post_therapy')
                 //check for presence of each part
-                if (n_of_t > n_of_pt) {
+                if (parseInt(n_of_t) > parseInt(n_of_pt)) {
                     next_text.innerHTML += ' Fill Post-Therapy Form'
                     next_btn.addEventListener('click', () => {
                         location.href = '/post-therapy'
                     })
 
                 }
-                else if (part1_lesion && done_post_therapy == 'false') {
+                else if (part1_lesion == 'true' && done_post_therapy == 'false') {
                     next_text.innerHTML += ' Fill Therapy Form'
                     next_btn.addEventListener('click', () => {
                         location.href = '/therapy'
