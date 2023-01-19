@@ -9,14 +9,14 @@ window.onload = async () => {
             .then(res => res.json())
             .then((data) => {
                 if (data.length != 0) {
-                    const part1_lesion = (data[0].lesion_prostate_a != null || !data[0].lesion_prostate_a) ||
-                        (data[0].lesion_lymph_a != null || !data[0].lesion_lymph_a) || (data[0].lesion_bone_a != null || !data[0].lesion_bone_a) ||
-                        (data[0].lesion_brain_a != null || !data[0].lesion_brain_a) || (data[0].lesion_lungs_a != null || !data[0].lesion_lungs_a) ||
-                        (data[0].lesion_liver_a != null || !data[0].lesion_liver_a) || (data[0].lesion_others_a != null || !data[0].lesion_others_a) ||
-                        (data[0].lesion_prostate_b != null || !data[0].lesion_prostate_b) ||
-                        (data[0].lesion_lymph_b != null || !data[0].lesion_lymph_b) || (data[0].lesion_bone_b != null || !data[0].lesion_bone_b) ||
-                        (data[0].lesion_brain_b != null || !data[0].lesion_brain_b) || (data[0].lesion_lungs_b != null || !data[0].lesion_lungs_b) ||
-                        (data[0].lesion_liver_b != null || !data[0].lesion_liver_b) || (data[0].lesion_others_b != null || !data[0].lesion_others_b)
+                    const part1_lesion = (data[0].lesion_prostate_a != null && data[0].lesion_prostate_a) ||
+                    (data[0].lesion_lymph_a != null && data[0].lesion_lymph_a) || (data[0].lesion_bone_a != null && data[0].lesion_bone_a) ||
+                    (data[0].lesion_brain_a != null && data[0].lesion_brain_a) || (data[0].lesion_lungs_a != null && data[0].lesion_lungs_a) ||
+                    (data[0].lesion_liver_a != null && data[0].lesion_liver_a) || (data[0].lesion_others_a != null && data[0].lesion_others_a) ||
+                    (data[0].lesion_prostate_b != null && data[0].lesion_prostate_b) ||
+                    (data[0].lesion_lymph_b != null && data[0].lesion_lymph_b) || (data[0].lesion_bone_b != null && data[0].lesion_bone_b) ||
+                    (data[0].lesion_brain_b != null && data[0].lesion_brain_b) || (data[0].lesion_lungs_b != null && data[0].lesion_lungs_b) ||
+                    (data[0].lesion_liver_b != null && data[0].lesion_liver_b) || (data[0].lesion_others_b != null && data[0].lesion_others_b)
                     sessionStorage.setItem('part1_lesion', part1_lesion)
                     const patient_info_body = document.querySelector('.patient-info-body')
                     patient_info_body.innerHTML = `
@@ -1048,14 +1048,14 @@ window.onload = async () => {
                     .then(res => res.json())
                     .then(data => {
                         if (data.length > 0) {
-                            const part4_lesion = (data[data.length - 1].lesion_prostate_a != null || !data[data.length - 1].lesion_prostate_a) ||
-                                (data[data.length - 1].lesion_lymph_a != null || !data[data.length - 1].lesion_lymph_a) || (data[data.length - 1].lesion_bone_a != null || !data[data.length - 1].lesion_bone_a) ||
-                                (data[data.length - 1].lesion_brain_a != null || !data[data.length - 1].lesion_brain_a) || (data[data.length - 1].lesion_lungs_a != null || !data[data.length - 1].lesion_lungs_a) ||
-                                (data[data.length - 1].lesion_liver_a != null || !data[data.length - 1].lesion_liver_a) || (data[data.length - 1].lesion_others_a != null || !data[data.length - 1].lesion_others_a) ||
-                                (data[data.length - 1].lesion_prostate_b != null || !data[data.length - 1].lesion_prostate_b) ||
-                                (data[data.length - 1].lesion_lymph_b != null || !data[data.length - 1].lesion_lymph_b) || (data[data.length - 1].lesion_bone_b != null || !data[data.length - 1].lesion_bone_b) ||
-                                (data[data.length - 1].lesion_brain_b != null || !data[data.length - 1].lesion_brain_b) || (data[data.length - 1].lesion_lungs_b != null || !data[data.length - 1].lesion_lungs_b) ||
-                                (data[data.length - 1].lesion_liver_b != null || !data[data.length - 1].lesion_liver_b) || (data[data.length - 1].lesion_others_b != null || !data[data.length - 1].lesion_others_b)
+                            const part4_lesion = (data[data.length - 1].lesion_prostate_a != null && data[data.length - 1].lesion_prostate_a) ||
+                            (data[data.length - 1].lesion_lymph_a != null && data[data.length - 1].lesion_lymph_a) || (data[data.length - 1].lesion_bone_a != null && data[data.length - 1].lesion_bone_a) ||
+                            (data[data.length - 1].lesion_brain_a != null && data[data.length - 1].lesion_brain_a) || (data[data.length - 1].lesion_lungs_a != null && data[data.length - 1].lesion_lungs_a) ||
+                            (data[data.length - 1].lesion_liver_a != null && data[data.length - 1].lesion_liver_a) || (data[data.length - 1].lesion_others_a != null && data[data.length - 1].lesion_others_a) ||
+                            (data[data.length - 1].lesion_prostate_b != null && data[data.length - 1].lesion_prostate_b) ||
+                            (data[data.length - 1].lesion_lymph_b != null && data[data.length - 1].lesion_lymph_b) || (data[data.length - 1].lesion_bone_b != null && data[data.length - 1].lesion_bone_b) ||
+                            (data[data.length - 1].lesion_brain_b != null && data[data.length - 1].lesion_brain_b) || (data[data.length - 1].lesion_lungs_b != null && data[data.length - 1].lesion_lungs_b) ||
+                            (data[data.length - 1].lesion_liver_b != null && data[data.length - 1].lesion_liver_b) || (data[data.length - 1].lesion_others_b != null && data[data.length - 1].lesion_others_b)
                             sessionStorage.setItem('part4_lesion', part4_lesion)
                             sessionStorage.setItem('number_of_followup', data.length)
                             sessionStorage.setItem('latest_followup', data[data.length - 1].created_at)
