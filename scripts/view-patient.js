@@ -1,6 +1,9 @@
 // currently here: make table of part2 part3 and part4
 // complete part4
 window.onload = async () => {
+    if (sessionStorage.getItem('user') === undefined || sessionStorage.getItem('user') === null) {
+        location.href = '/login'
+    }
     if (sessionStorage.getItem('patient_code') != null) {
         await fetch(`/request/demographic?patient_code=${sessionStorage.getItem('patient_code')}`, {
             method: 'GET',

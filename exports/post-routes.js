@@ -1,5 +1,6 @@
 const express = require('express');
 const db = require('../database/connection');
+const CryptoJS = require('crypto-js');
 const router = express.Router();
 
 router.post('/add-patient', (req, res) => {
@@ -502,5 +503,27 @@ router.post('/add-patient/follow-up', (req, res) => {
     else {
         res.json([{ 'event': 'fill' }])
     }
+})
+
+router.post('/login', (req, res) => {
+    const {username, password} = req.body
+    db('users')
+    .select('username', 'password')
+    .where({
+        username: username
+    })
+    .then(data => {
+        if(data.length > 0){
+            data[0].password = CryptoJS.AES.decrypt(data[0].password, process.env.KEY).toString(CryptoJS.enc.Utf8)
+        if(data[0].password === password) {
+            res.json([{
+                username: data[0].username,
+                event: 'success'
+            }])
+        }
+        else res.json([{event: 'password incorrect'}])
+        }
+        else res.json([{event: 'user not found'}])
+    })
 })
 module.exports = router

@@ -1,3 +1,5 @@
+const CryptoJS = require('crypto-js');
+require('dotenv').config()
 const functions = {
     generateTables: async (db) => {
         await db.schema.hasTable('part1').then(async (e) => {
@@ -276,6 +278,28 @@ const functions = {
                                 console.log('table already exists');
                             }
                         })
+                }
+            )
+            .then(
+                async () => {
+                    await db.schema.hasTable('users')
+                    .then(async (e) => {
+                        if (!e){
+                            await db.schema.createTable('users', (t) => {
+                                t.increments('user_id');
+                                t.string('username');
+                                t.string('password');
+                            })
+                            .then(async () => await db('users').insert([{
+                                username: 'admin',
+                                password: CryptoJS.AES.encrypt('password', process.env.KEY).toString()
+                            }]))
+                        }
+                        else {
+                            console.log('table already exists')
+                        }
+                    }
+                    )
                 }
             )
     }

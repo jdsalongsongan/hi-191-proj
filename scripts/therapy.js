@@ -1,4 +1,7 @@
 window.onload = () => {
+    if (sessionStorage.getItem('user') === undefined || sessionStorage.getItem('user') === null) {
+        location.href = '/login'
+    }
     if(sessionStorage.getItem('patient_code') == null) location.href = '/'
     else {
         const titletext = document.querySelector('.titletext')
