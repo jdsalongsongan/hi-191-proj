@@ -260,6 +260,8 @@ submit_btn.addEventListener('click', () => {
         if (checks[4].checked) queryBody.push('lungs=true')
         if (checks[5].checked) queryBody.push('liver=true')
         if (checks[6].checked) queryBody.push('others=true')
+        if (!checks[0].checked && !checks[1].checked && !checks[2].checked && !checks[3].checked &&
+            !checks[4].checked && !checks[5].checked && !checks[6].checked) queryBody.push('none=true')
         var queryString = queryBody.join('&')
         if (selection[1].value == 'imaging') {
             if (selection[2].value == 'screening') {
