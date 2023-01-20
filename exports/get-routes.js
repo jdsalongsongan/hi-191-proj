@@ -91,13 +91,13 @@ router.get('/count-lesion-part1', (req, res) => {
     db('part1').select(['part1.patient_code', 'part1.first_name', 'part1.last_name'])
     .where((builder) => {
         if (req.query['none']){
-            builder.where('part1.lesion_prostate_a', false).andWhere('part1.lesion_prostate_b', false)
-            .andWhere('part1.lesion_lymph_a', false).andWhere('part1.lesion_lymph_b', false)
-            .andWhere('part1.lesion_bone_a', false).andWhere('part1.lesion_bone_b', false)
-            .andWhere('part1.lesion_brain_a', false).andWhere('part1.lesion_brain_b', false)
-            .andWhere('part1.lesion_lungs_a', false).andWhere('part1.lesion_lungs_b', false)
-            .andWhere('part1.lesion_liver_a', false).andWhere('part1.lesion_liver_b', false)
-            .andWhere('part1.lesion_others_a', false).andWhere('part1.lesion_others_b', false)
+            builder.whereNot('part1.lesion_prostate_a', true).andWhereNot('part1.lesion_prostate_b', true)
+            .andWhereNot('part1.lesion_lymph_a', true).andWhereNot('part1.lesion_lymph_b', true)
+            .andWhereNot('part1.lesion_bone_a', true).andWhereNot('part1.lesion_bone_b', true)
+            .andWhereNot('part1.lesion_brain_a', true).andWhereNot('part1.lesion_brain_b', true)
+            .andWhereNot('part1.lesion_lungs_a', true).andWhereNot('part1.lesion_lungs_b', true)
+            .andWhereNot('part1.lesion_liver_a', true).andWhereNot('part1.lesion_liver_b', true)
+            .andWhereNot('part1.lesion_others_a', true).andWhereNot('part1.lesion_others_b', true)
         }
         else {
             if (req.query['prostate']) builder.where('part1.lesion_prostate_a', true).orWhere('part1.lesion_prostate_b', true)
@@ -129,11 +129,20 @@ router.get('/count-lesion-part3', async (req, res) => {
     .leftJoin('part3', 'part1.patient_code', 'part3.patient_id')
     .select(['part1.patient_code', 'part3.post_therapy_id' , 'part1.first_name', 'part1.last_name'])
     .where((builder) => {
-        if (req.query['prostate']) builder.where('part3.lesion_prostate', true)
-        if (req.query['lymph']) builder.orWhere('part3.lesion_lymph', true)
-        if (req.query['bone']) builder.orWhere('part3.lesion_bones', true)
-        if (req.query['lungs']) builder.orWhere('part3.lesion_lungs', true)
-        if (req.query['liver']) builder.orWhere('part3.lesion_liver', true)
+        if (req.query['none']) {
+        builder.whereNot('part3.lesion_prostate', true)
+            .andWhereNot('part3.lesion_lymph', true)
+            .andWhereNot('part3.lesion_bones', true)
+            .andWhereNot('part3.lesion_lungs', true)
+            .andWhereNot('part3.lesion_liver', true)
+        }
+        else {
+            if (req.query['prostate']) builder.where('part3.lesion_prostate', true)
+            if (req.query['lymph']) builder.orWhere('part3.lesion_lymph', true)
+            if (req.query['bone']) builder.orWhere('part3.lesion_bones', true)
+            if (req.query['lungs']) builder.orWhere('part3.lesion_lungs', true)
+            if (req.query['liver']) builder.orWhere('part3.lesion_liver', true)
+        }
     })
     .orderBy('part1.patient_code', 'asc')
     .returning()
@@ -163,13 +172,24 @@ router.get('/count-lesion-part4', (req, res) => {
     .leftJoin('part4', 'part1.patient_code', 'part4.patient_id')
     .distinct(['part1.patient_code', 'part1.first_name', 'part1.last_name'])
     .where((builder) => {
-        if (req.query['prostate']) builder.where('part4.lesion_prostate_a', true).orWhere('part4.lesion_prostate_b', true)
-        if (req.query['lymph']) builder.orWhere('part4.lesion_lymph_a', true).orWhere('part4.lesion_lymph_b', true)
-        if (req.query['bone']) builder.orWhere('part4.lesion_bone_a', true).orWhere('part4.lesion_bone_b', true)
-        if (req.query['brain']) builder.orWhere('part4.lesion_brain_a', true).orWhere('part4.lesion_brain_b', true)
-        if (req.query['lungs']) builder.orWhere('part4.lesion_lungs_a', true).orWhere('part4.lesion_lungs_b', true)
-        if (req.query['liver']) builder.orWhere('part4.lesion_liver_a', true).orWhere('part4.lesion_liver_b', true)
-        if (req.query['others']) builder.orWhere('part4.lesion_others_a', true).orWhere('part4.lesion_others_b', true)
+        if(req.query['none']){
+            builder.whereNot('part4.lesion_prostate_a', true).andWhereNot('part4.lesion_prostate_b', true)
+            .andWhereNot('part4.lesion_lymph_a', true).andWhereNot('part4.lesion_lymph_b', true)
+            .andWhereNot('part4.lesion_bone_a', true).andWhereNot('part4.lesion_bone_b', true)
+            .andWhereNot('part4.lesion_brain_a', true).andWhereNot('part4.lesion_brain_b', true)
+            .andWhereNot('part4.lesion_lungs_a', true).andWhereNot('part4.lesion_lungs_b', true)
+            .andWhereNot('part4.lesion_liver_a', true).andWhereNot('part4.lesion_liver_b', true)
+            .andWhereNot('part4.lesion_others_a', true).andWhereNot('part4.lesion_others_b', true)
+        }
+        else{
+            if (req.query['prostate']) builder.where('part4.lesion_prostate_a', true).orWhere('part4.lesion_prostate_b', true)
+            if (req.query['lymph']) builder.orWhere('part4.lesion_lymph_a', true).orWhere('part4.lesion_lymph_b', true)
+            if (req.query['bone']) builder.orWhere('part4.lesion_bone_a', true).orWhere('part4.lesion_bone_b', true)
+            if (req.query['brain']) builder.orWhere('part4.lesion_brain_a', true).orWhere('part4.lesion_brain_b', true)
+            if (req.query['lungs']) builder.orWhere('part4.lesion_lungs_a', true).orWhere('part4.lesion_lungs_b', true)
+            if (req.query['liver']) builder.orWhere('part4.lesion_liver_a', true).orWhere('part4.lesion_liver_b', true)
+            if (req.query['others']) builder.orWhere('part4.lesion_others_a', true).orWhere('part4.lesion_others_b', true)
+        }
     })
     .orderBy('part1.patient_code', 'asc')
     .returning()
